@@ -1,0 +1,246 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background: #161616;
+  overflow: hidden;
+}
+
+:root {
+  --level-one: translateZ(3rem);
+  --level-two: translateZ(6rem);
+  --level-three: translateZ(9rem);
+
+  --fw-normal: 400;
+  --fw-bold: 700;
+}
+
+/* Card */
+.block {
+  position: relative;
+  width: 30rem;
+  margin: 0px 15rem 0px 100px;
+}
+/* 
+h1 {
+  position: absolute;
+  font-family: "Monument Extended";
+  font-weight: lighter;
+  font-size: 64px;
+} */
+
+.card-content {
+  position: absolute;
+  transform-style: preserve-3d;
+  transform-origin: center;
+  transition: transform 1s;
+  padding: 20rem 20rem;
+  white-space: normal;
+}
+.card-content:hover {
+  transform: rotateY(0.5turn);
+  transform-origin: center;
+}
+
+.card-front {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10em 10em;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  display: grid;
+  align-content: center;
+}
+
+.card-back {
+  position: absolute;
+  top: -10%;
+  bottom: 0;
+  right: 0;
+  padding: 10em 10em;
+  backface-visibility: hidden;
+  transform: rotateY(0.5turn);
+  width: 200px;
+  transform-style: preserve-3d;
+}
+
+.card-front::before {
+  content: "";
+  position: absolute;
+  --spacer: 1em;
+  top: var(--spacer);
+  bottom: var(--spacer);
+  right: var(--spacer);
+  left: var(--spacer);
+  border: 3px solid burlywood;
+  transform: var(--level-one);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  transform-style: var(--level-three);
+  text-transform: uppercase;
+}
+/* Cardlist */
+.block-1 .card-front {
+  background: url(images/img-one.jpeg) no-repeat 50% 50%;
+  background-size: cover;
+  background-blend-mode: overlay;
+}
+
+.block-2 .card-front {
+  background: url(images/img-two.jpeg) no-repeat 50% 50%;
+  background-size: cover;
+  background-blend-mode: overlay;
+}
+
+.block-3 .card-front {
+  background: url(images/img-three.jpeg) no-repeat 50% 50%;
+  background-size: cover;
+  background-blend-mode: overlay;
+}
+
+.block-4 .card-front {
+  background: url(images/img-four.jpeg) no-repeat 50% 50%;
+  background-size: cover;
+  background-blend-mode: overlay;
+}
+
+.block-5 .card-front {
+  background: url(images/img-five.jpeg) no-repeat 50% 50%;
+  background-size: cover;
+  background-blend-mode: overlay;
+}
+
+.container {
+  margin-top: 200px;
+  margin-left: 200px;
+}
+.block-1 h1,
+.block-3 h1,
+.block-5 h1 {
+  bottom: 0;
+  right: -60px;
+}
+
+.block-2 h1,
+.block-4 h1 {
+  right: -60px;
+}
+
+/* Scroller */
+.scroller {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  top: 32px;
+  width: 20px;
+  height: 30px;
+}
+.smalldivi {
+  height: 10px;
+  width: 2px;
+  background: grey;
+  margin-left: 2px;
+}
+/* title */
+.title{
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 120px;
+  font-size: 20px;
+  font-family: "Monument";
+}
+/* Button */
+.about {
+  position: relative;
+  left: 96vw;
+  color: #bac4b8;
+  max-width: max-content;
+  font-size: 1rem;
+  border: none;
+  background: transparent;
+  transition: transform 500ms ease;
+  top: 20px;
+  padding-bottom: 4px;
+}
+.about::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  bottom: 0%;
+  width: 100%;
+  left: 0%;
+  transform: scaleX(0);
+  transition: transform 300ms ease;
+  transform-origin: left;
+  background: burlywood;
+}
+
+.about:hover {
+  transform: scale(1.2);
+}
+.About:hover .about::after {
+  transform: scaleX(1);
+}
+
+.know_more {
+  margin: 100% 0% 100%;
+  display: flex;
+}
+hr {
+  margin-left: 6%;
+}
+.know_more > * {
+  font-size: 1.1rem;
+}
+
+/* Cusor */
+.cursor {
+  position: absolute;
+  margin-top: -10px;
+  margin-left: -10px;
+
+  background-color: white;
+  transition: ease-out 100ms;
+
+}
+
+/* layers */
+
+.right-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  top: auto;
+  left: 100%;
+  bottom: auto;
+  right: auto;
+  background:#bac4b8;
+  transition: all 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.right-layer.active {
+  left:0%;
+}
+.left-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: auto;
+  z-index: 10;
+  left: 0%;
+  bottom: auto;
+  right: auto;
+  background: #bac4b8;
+  transition: all 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.left-layer.active {
+  left: 100%;
+}

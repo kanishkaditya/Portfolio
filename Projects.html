@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <title>My Work</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="ProjectStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div class="right-layer"></div>
+    <div class="left-layer"></div>
+    <div class="cursor"></div>
+      <div class="navbar">
+        <div class="title">Kanishk</div>
+          <div class="scroller">
+          <div class="smalldivi divi1"></div>
+          <div class="smalldivi divi2"></div>
+          <div class="smalldivi divi3"></div>
+          <div class="smalldivi divi4"></div>
+          <div class="smalldivi divi5"></div>
+      </div>
+      <div class='About'>
+      <button class="about">
+        About
+      </button></div>
+    </div>
+    <div class="container">
+      <div class="block block-1">
+        <div class="card-content">
+          <div class="card-front">
+            <div class="card-title">Portfolio</div>
+          </div>
+          <div class="card-back">
+            A Portfolio designed solely using HTML, CSS and Jquery. One of my finest creation.
+
+            <div class="know_more c1" type="button">
+              See Project
+              <hr size="1" width="10%" color="white" class="divider">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block block-2">
+        <div class="card-content">
+          <div class="card-front">
+            <div class="card-title">Spec App</div>
+          </div>
+          <div class="card-back">
+            <div class="know_more">
+              <p>&#x2192</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block block-3">
+        <div class="card-content">
+          <div class="card-front">
+            <div class="card-title">Capture it Openly</div>
+          </div>
+          <div class="card-back">
+            <div class="know_more">
+              <p>&#x2192</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block block-4">
+        <div class="card-content">
+          <div class="card-front">
+            <div class="card-title">Vibez</div>
+          </div>
+          <div class="card-back">
+            <div class="know_more">
+              <p>&#x2192</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block block-5">
+        <div class="card-content">
+          <div class="card-front">
+            <div class="card-title">Snake AI</div>
+          </div>
+          <div class="card-back">
+            <div class="know_more">
+              <p>&#x2192</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <i class="fa fa-github" style="position:absolute; margin-top: 35%; left: 4%;" onclick=""></i>
+      <i class="fa fa-linkedin" style="position:absolute; margin-top: 35%; left: 6%;" onclick=""></i>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="Project-script.js"></script>
+    <script>
+      var blocks = document.getElementsByClassName("block");
+      var container = document.getElementsByClassName("container");
+      var hs = new HorizontalScroll.default({
+        blocks: blocks,
+        container: container,
+        isAnimated: true,
+        springEffect: 0.8,
+      });
+    </script>
+  </body>
+</html>
