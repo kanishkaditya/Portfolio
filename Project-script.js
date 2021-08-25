@@ -1,4 +1,43 @@
 var scroll_value = 0;
+var inder=-1;
+var prev= [0 ,0, 0, 0, 0]
+
+var projects=[];
+var data=Object();
+data['Date']='August 2021';
+data['Type']='Portfolio';
+data['Role']='Web Developer';
+data['Client']='Personal Project';
+data['Info'] = 'A portfolio site made purely by HTML, CSS, and JQuery. One of My finest work';
+projects.push(data);
+data=Object();
+data['Date']='Feburary 2021';
+data['Type']='Promotional';
+data['Role']='App Developer';
+data['Client']='Spec';
+data['Info'] = 'An app made for the student of Nit H. It was made under the Promotion of Spec';
+projects.push(data);
+data=Object();
+data['Date']='March 2021';
+data['Type']='Project';
+data['Role']='Data analyst';
+data['Client']='Personal Project';
+data['Info'] = 'A Machine learning project which makes a mask over the person in the image. It uses CGANs model';
+projects.push(data);
+data=Object();
+data['Date']='June 2021';
+data['Type']='Personal';
+data['Role']='Flutter Developer';
+data['Client']='Vivek';
+data['Info'] = 'A Flutter Application which uses Pexels API in order to fetch images and display them in a beautiful UI';
+projects.push(data);
+data=Object();
+data['Date']='October 2020';
+data['Type']='Personal';
+data['Role']='Data analyst';
+data['Client']='Personal Project';
+data['Info'] = 'A machine learning model which uses genetic algorithm to play the snake game and acheive a perfect score';
+projects.push(data);
 
 !(function (t) {
   if ("object" == typeof exports && "undefined" != typeof module)
@@ -1154,19 +1193,22 @@ var scroll_value = 0;
                               "px, 0 ,0)"),
                         (this.vars.oldScrollValue = this.vars.scrollValue),
                         this.raf(this._update);
-                      var height = this.vars.scrollValue;
-                      var ind = (height / 300) | 0;
 
-                      for (var i = 0; i < 5; i++) {
-                        $(".divi" + (i + 1)).css({
-                          transform:
-                            "translateY(" +
-                            (-10 + Math.abs(ind - i)) +
-                            "px" +
-                            ")",
-                          transition: "Transform 20ms ease-in",
+                      var ind = ((this.vars.scrollValue / 8)/52.5) | 0;
+                      if(inder!=ind)
+                      {
+                        inder=ind;
+                        for (var i = 0; i < 5; i++) {
+                        if(Math.abs(ind-i)<=2)
+                        {
+                          var d = new Date();
+                          prev[i]=d.getTime();
+                           $(".divi" + (i + 1)).css({
+                          transform:'scaleY('+  (1.5 - Math.abs(ind-i)/3.2) +')'
                         });
                       }
+                      }
+                    }
                     },
                   },
                   {
@@ -1203,6 +1245,10 @@ var scroll_value = 0;
     [13]
   )(13);
 });
+
+
+//cursor Management
+
 
 var size = "20px;";
 var border_radius = "50%;";
@@ -1250,6 +1296,23 @@ $(document).on(
   ".hoverarea"
 );
 
+
+setInterval(function(){
+  for (var i = 0; i < 5; i++) {
+    var d = new Date();
+    var n = d.getTime();
+      if(n-prev[i]>=400 && prev[i]!=0)
+     {
+       $(".divi" + (i + 1)).css({
+      transform:'scaleY(1)'
+    });
+    prev[i]=0;
+  }
+  }
+}, 250);
+
+
+//Layer Mangement
 var layerClass = ".left-layer";
 var layer = document.querySelector(layerClass);
 layer.classList.toggle("active");
@@ -1272,13 +1335,18 @@ button.addEventListener("click", () => {
 var current_open = -1;
 function cardOpen(block_name,key)
 {
-  
+  // $('.container').children().not(block_name).forEach(element=>element.style.filter = "blur(6px)");
+  document.querySelectorAll('.block')
+  .forEach(function(element){
+    if(!$(element).hasClass('block-' + (key+1)))
+    element.style.filter = "blur(6px)"}
+    );
   $(block_name).css({
     transform:
       "translateX(" +
       (60 - (((2*key+1)*20 +(key+1)*12.5) - (scroll_value / 16))) +
       "rem)",
-    "z-index": "50",
+    "z-index": "10",
   });
 
   var card_front = $(block_name).find(".card-front");
@@ -1296,6 +1364,13 @@ function cardOpen(block_name,key)
     top: "-20rem",
   });
 
+  $('.divi'+(key+1)).animate({
+    width:'10px',
+    'font-size':'12px',
+    'padding-left':'5px',
+    'padding-right':'2px'
+  })
+
   $(".hoverarea").css({
     "pointer-events": "none",
   });
@@ -1303,8 +1378,12 @@ function cardOpen(block_name,key)
   current_open = key;
 }
 
-function cardClose(key){
-
+function cardClose(){
+  document.querySelectorAll('.block')
+  .forEach(function(element){
+    if(!$(element).hasClass('block-' + (current_open+1)))
+    element.style.filter = "blur(0px)"}
+    );
   $(".block-" + (current_open + 1)).css({
     transform: "translateX(" + 0 + "rem)",
     "z-index": "0",
@@ -1317,43 +1396,125 @@ function cardClose(key){
       left: "0rem",
       top: "0rem",
     });
+    $('.divi'+(current_open+1)).animate({
+      width:'0.2px',
+      'font-size':'0px',
+      'padding-left':'0px',
+      'padding-right':'0px'
+    })
   var card_front = $(".block-" + (current_open + 1)).find(".card-front");
   card_front.css({
     width: "40rem",
   });
+  $(".hoverarea").css({
+    "pointer-events": "all",
+  });
+  
   card_front.removeClass("hidden");
 }
 
+function card_info_remove()
+{
+  //Info Screen Transition
 
+  $('.C').css({
+    transform: 'translateY(34px)'});
+  $('.B').css({
+    transform: 'translateY(62px)'});
+  $('.A').css({
+    transform: 'translateY(90px)'});
+
+  $('.brief').css({})
+    $('.E').css({
+      opacity:1.0});
+      $('.C').find('.Role').text("");
+      $('.B').find('.Type').text("");
+      $('.A').find('.Date').text("");
+      $('.D').find('.Client').text("");
+      $('.brief').text("");
+
+    //Explore Transition
+    $('.hider').css({
+      transform: 'translateY(-20px)'});
+
+      $('.hider1').css({
+        transform: 'translateY(-30px)'});
+        $('.hider2').css({
+          transform: 'translateY(-80px)'});
+
+    //line Transition
+    $('.line').css({
+      height:'0px'});
+}
+function card_info_change(key){
+  
+  //INFO Screen Opening
+  $('.C').find('.Role').text(projects[key]['Role']);
+  $('.C').css({
+    transform: 'translateY(0px)'});
+    $('.B').find('.Type').html(projects[key]['Type']);
+  $('.B').css({
+    transform: 'translateY(0px)'});
+    $('.A').find('.Date').text(projects[key]['Date']);
+  $('.A').css({
+    transform: 'translateY(0px)'});
+    $('.D').find('.Client').text(projects[key]['Client']);
+    $('.E').css({
+      opacity:0.0});
+      $('.brief').text(projects[key]['Info']);
+
+      $('.hider2').css({
+        transform: 'translateY(0px)'});
+    
+  
+    //Explore
+
+    $('.hider').css({
+      transform: 'translateY(0px)'});
+      $('.hider1').css({
+        transform: 'translateY(0px)'});
+
+      //line Transition
+
+    $('.line').css({
+      height:'46px'});
+}
 
 var blocks = document.querySelectorAll(".block");
-
+$(window).on('wheel',function(event){
+  if(current_open!=-1)
+  {
+    cardClose(current_open);
+    card_info_remove();
+  current_open=-1;}
+});
 blocks.forEach(function (element, key, _) {
   var block_name=".block-" + (key + 1);
-  $(block_name).on("click wheel", (event) => {
-    if(event.type=='wheel')
-    {
-      if(current_open!=-1)
-      {cardClose(current_open);
-      current_open=-1;}
-    }
-    else if (current_open == -1) {
+  $(block_name).on("click", (event) => {
+     if (current_open == -1) {
       cardOpen(block_name,key);
+      card_info_change(key);
     } else if (current_open != key) {
 
       //recovering original css
-      cardClose(key);
+      cardClose();
+      card_info_remove();
       //new card
       cardOpen(block_name,key);
+      setTimeout(function(){
+        card_info_change(key);
+      },500);
     }
   });
 });
 
 $(document).on("keydown", function (event) {
-  if (event.key == "Escape") {
+  if (event.key == "Escape"  || event.keyCode==37 || event.keyCode==39) {
     if (current_open != -1) {
-      cardClose(current_open);
+      cardClose();
+      card_info_remove();
       current_open = -1;
     }
   }
 });
+
