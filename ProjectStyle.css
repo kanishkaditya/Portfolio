@@ -21,49 +21,44 @@ body {
 /* Card */
 .block {
   position: relative;
-  width: 30rem;
-  margin: 0px 15rem 0px 100px;
+  width: 40rem;
+  height: 40rem;
+  margin: 0px 12.5rem 0px 0px;
+  transition: 500ms ease;
 }
-/* 
-h1 {
-  position: absolute;
-  font-family: "Monument Extended";
-  font-weight: lighter;
-  font-size: 64px;
-} */
+/* .Project-detail-title{
 
+} */
 .card-content {
   position: absolute;
   transform-style: preserve-3d;
   transform-origin: center;
-  transition: transform 1s;
-  padding: 20rem 20rem;
+  transition: transform 500ms;
   white-space: normal;
 }
-.card-content:hover {
+/* .card-content:hover {
   transform: rotateY(0.5turn);
-  transform-origin: center;
-}
-
-.card-front {
+} */
+.hoverarea{
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 10em 10em;
+  height: 200px;
+  width: 200px;
+  z-index: 20;
+}
+.hoverarea:hover ~ .card-content { transform: rotateY(0.5turn); }
+.card-front {
+  position: relative;
+  height: 40rem;
+  width: 40rem;
   backface-visibility: hidden;
   transform-style: preserve-3d;
-  display: grid;
-  align-content: center;
+  transition: 1000ms ease;
 }
 
 .card-back {
-  position: absolute;
-  top: -10%;
-  bottom: 0;
-  right: 0;
-  padding: 10em 10em;
+  position: relative;
+  top: -30rem;
+  right: -20rem;
   backface-visibility: hidden;
   transform: rotateY(0.5turn);
   width: 200px;
@@ -79,13 +74,21 @@ h1 {
   right: var(--spacer);
   left: var(--spacer);
   border: 3px solid burlywood;
+  transition: 500ms ease;
   transform: var(--level-one);
 }
 
+.card-front.hidden::before{
+  opacity: 0;
+}
 .card-title {
+  position: absolute;
+  padding-top: 100px;
+  padding-left: 100px;
   font-size: 1.5rem;
   transform-style: var(--level-three);
   text-transform: uppercase;
+  transition: 500ms ease;
 }
 /* Cardlist */
 .block-1 .card-front {
@@ -120,18 +123,10 @@ h1 {
 
 .container {
   margin-top: 200px;
-  margin-left: 200px;
-}
-.block-1 h1,
-.block-3 h1,
-.block-5 h1 {
-  bottom: 0;
-  right: -60px;
-}
+  margin-left: 12.5rem;
+  z-index: 2;
+  transition:200ms ease
 
-.block-2 h1,
-.block-4 h1 {
-  right: -60px;
 }
 
 /* Scroller */
@@ -206,7 +201,7 @@ hr {
   position: absolute;
   margin-top: -10px;
   margin-left: -10px;
-
+  opacity: 0.5;
   background-color: white;
   transition: ease-out 100ms;
 
@@ -218,7 +213,7 @@ hr {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 10;
+  z-index: 100;
   top: auto;
   left: 100%;
   bottom: auto;
@@ -233,14 +228,27 @@ hr {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: auto;
-  z-index: 10;
+  z-index: 100;
   left: 0%;
-  bottom: auto;
-  right: auto;
   background: #bac4b8;
   transition: all 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .left-layer.active {
   left: 100%;
 }
+
+/* Detail Pane title
+
+.Project-detail-title{
+  position: absolute;
+  display: inline-block;
+  top:  20%;
+  left: 20%;
+  letter-spacing: 20px;
+
+  font-size: 10rem;
+  opacity: 0.0;
+  transition:500ms ease;
+  right: 50%;
+  z-index: 20;
+} */

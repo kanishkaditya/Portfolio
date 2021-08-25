@@ -1,3 +1,5 @@
+var scroll_value = 0;
+
 !(function (t) {
   if ("object" == typeof exports && "undefined" != typeof module)
     module.exports = t();
@@ -1127,11 +1129,11 @@
                   {
                     key: "_update",
                     value: function () {
-
                       this.vars.scrollValue +=
-                        ((this.vars.scrollTarget - this.vars.scrollValue) *
-                        this.vars.spring);
-
+                        (this.vars.scrollTarget - this.vars.scrollValue) *
+                        this.vars.spring;
+                      scroll_value = this.vars.scrollValue;
+                      console.log(scroll_value);
                       var t = this.vars.scrollTarget - this.vars.scrollValue,
                         e = t / this.options.skewReducer;
                       (this.vars.speed = this._clamp(
@@ -1221,9 +1223,6 @@ document.addEventListener("mousemove", function (event) {
       size +
       "width:" +
       size +
-      "opacity:" +
-      0.8 +
-      ";" +
       "border-radius:" +
       border_radius +
       "margin-top:" +
@@ -1248,13 +1247,12 @@ $(document).on(
       margin_left = "-10px;";
     },
   },
-  ".card-content"
+  ".hoverarea"
 );
 
-
 var layerClass = ".left-layer";
-  var layer = document.querySelector(layerClass);
-  layer.classList.toggle("active");
+var layer = document.querySelector(layerClass);
+layer.classList.toggle("active");
 
 const button = document.querySelector(".about");
 
@@ -1268,13 +1266,94 @@ button.addEventListener("click", () => {
   var layerClass = ".right-layer";
   var layer = document.querySelector(layerClass);
   layer.classList.toggle("active");
-  
 });
 
 
-document.querySelector('.c1').addEventListener('click',()=>{
-  $('.block-1').css({
-    left:'50em',
-    'z-index':'50',
-  })
-})
+var current_open = -1;
+function cardOpen(block_name,key)
+{
+  
+  $(block_name).css({
+    transform:
+      "translateX(" +
+      (60 - (((2*key+1)*20 +(key+1)*12.5) - (scroll_value / 16))) +
+      "rem)",
+    "z-index": "50",
+  });
+
+  var card_front = $(block_name).find(".card-front");
+  card_front.css({
+    width: "50rem",
+  });
+
+  card_front.addClass("hidden");
+
+  var text_title = $(block_name).find(".card-title");
+
+  text_title.css({
+    transform: "scale(5)",
+    left: "10rem",
+    top: "-20rem",
+  });
+
+  $(".hoverarea").css({
+    "pointer-events": "none",
+  });
+
+  current_open = key;
+}
+
+function cardClose(key){
+
+  $(".block-" + (current_open + 1)).css({
+    transform: "translateX(" + 0 + "rem)",
+    "z-index": "0",
+  });
+
+  $(".block-" + (current_open + 1))
+    .find(".card-title")
+    .css({
+      transform: "scale(1)",
+      left: "0rem",
+      top: "0rem",
+    });
+  var card_front = $(".block-" + (current_open + 1)).find(".card-front");
+  card_front.css({
+    width: "40rem",
+  });
+  card_front.removeClass("hidden");
+}
+
+
+
+var blocks = document.querySelectorAll(".block");
+
+blocks.forEach(function (element, key, _) {
+  var block_name=".block-" + (key + 1);
+  $(block_name).on("click wheel", (event) => {
+    if(event.type=='wheel')
+    {
+      if(current_open!=-1)
+      {cardClose(current_open);
+      current_open=-1;}
+    }
+    else if (current_open == -1) {
+      cardOpen(block_name,key);
+    } else if (current_open != key) {
+
+      //recovering original css
+      cardClose(key);
+      //new card
+      cardOpen(block_name,key);
+    }
+  });
+});
+
+$(document).on("keydown", function (event) {
+  if (event.key == "Escape") {
+    if (current_open != -1) {
+      cardClose(current_open);
+      current_open = -1;
+    }
+  }
+});
