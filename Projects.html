@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="ProjectStyle.css" />
+    <link rel='stylesheet' href='styleSheets/GeneralStyle.css'/>
+    <link rel="stylesheet" href="styleSheets/ProjectStyle.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
@@ -19,7 +20,15 @@
     <div class="tempdiv2"></div>
     <div class="tempdiv3"></div>
       <div class="navbar">
-        <div class="title">Kanishk</div>
+        <div class="title-hover"></div>
+        <div class="title-card">
+          <div class="title-front">
+            <div class="title home">Kanishk</div>
+          </div>
+          <div class="title-back">
+            Back to Home
+          </div>
+        </div>
           <div class="scroller">
           <div class="smalldivi divi1">1</div>
           <div class="smalldivi divi2">2</div>
@@ -41,9 +50,13 @@
           </div>
           <div class="card-back">
             A Portfolio designed solely using HTML, CSS and Jquery. One of my finest creation.
+            All the animations are solely made using jquery and css.
             <div class="know_more c1" type="button">
               See Project
               <hr size="1" width="10%" color="white" class="divider">
+              <div style="position:absolute; left:40%">
+                <i class="fa fa-github" onclick=""></i>
+            </div>
             </div>
           </div>
         </div>
@@ -52,11 +65,18 @@
         <div class="hoverarea"></div>
         <div class="card-content">
           <div class="card-front">
+            
             <div class="card-title">Spec App</div>
           </div>
           <div class="card-back">
-            <div class="know_more">
-              <p>&#x2192</p>
+            An app desinged for the student of my university. This app serves as a single go to platform and consist of various features all summed up together
+            to provide the best user experience. some features of this app consist as Results, Timetable management, Courses management, Upcoming events and much more. 
+            <div class="know_more c1" type="button">
+              See Project
+              <hr size="1" width="10%" color="white" class="divider">
+              <div style="position:absolute; left:40%">
+                <i class="fa fa-github" onclick=""></i>
+            </div>
             </div>
           </div>
         </div>
@@ -68,8 +88,14 @@
             <div class="card-title">Capture it Openly</div>
           </div>
           <div class="card-back">
-            <div class="know_more">
-              <p>&#x2192</p>
+            A Machine learning model which detects humans in an image and creates a binary-mask over them which it uses furthur to remove the respective
+            person from the image and recreate the image without the person using image inpainting.This project was made a part of an of organisational statement for a Hackathon.
+            <div class="know_more c1" type="button">
+              See Project
+              <hr size="1" width="10%" color="white" class="divider">
+              <div style="position:absolute; left:40%">
+                <i class="fa fa-github" onclick=""></i>
+            </div>
             </div>
           </div>
         </div>
@@ -81,8 +107,14 @@
             <div class="card-title">Vibez</div>
           </div>
           <div class="card-back">
-            <div class="know_more">
-              <p>&#x2192</p>
+            A single palce for all your daily vibes. An app made using flutter which works in collaboration with the Pexels api in order
+            to provide best wallpapers for your suitable vibes. 
+            <div class="know_more c1" type="button">
+              See Project
+              <hr size="1" width="10%" color="white" class="divider">
+              <div style="position:absolute; left:40%">
+                <i class="fa fa-github" onclick=""></i>
+            </div>
             </div>
           </div>
         </div>
@@ -94,14 +126,20 @@
             <div class="card-title">Snake AI</div>
           </div>
           <div class="card-back">
-            <div class="know_more">
-              <p>&#x2192</p>
+            Ever played Snake game , well isn't it frustating when trying for so long and dying wouldn't it be amazing if you can get a perfect score?
+            Snake AI is an amazing ML model which uses "Genetic algorithms" in order to play the snake game and defeat it.  
+            <div class="know_more c1" type="button">
+              See Project
+              <hr size="1" width="10%" color="white" class="divider">
+              <div style="position:absolute; left:40%">
+                <i class="fa fa-github" style='color:white' onclick=""></i>
+            </div>
             </div>
           </div>
         </div>
       </div>
       </div>
-      <div class="Info">
+      <div class="Info" style="position: fixed;">
         <div class="A">
           <p>A</p>
           <p>Completed</p>
@@ -122,25 +160,23 @@
           <p>Client</p>
           <p class='Client'></p>
         </div>
-        <div class="E">
-          <p>D</p>
-          <p>Client</p>
-          <p class='Client'></p>
-        </div>
       </div>
       <div class="hider"></div>
       <div class="Explore">
         Explore
       </div>
       <div class="line"></div>
-      <div class="arrow"></div>
-      <div class="hider1"></div>
+      <!-- <div class="arrow"></div>
+      <div class="hider1"></div> -->
       <div class="brief"></div>
       <div class="hider2"></div>
-      <i class="fa fa-github" style="position:absolute; margin-top: 35%; left: 4%;" onclick=""></i>
-      <i class="fa fa-linkedin" style="position:absolute; margin-top: 35%; left: 6%;" onclick=""></i>
+      <div class="icons" style="display: flex; position:fixed; top: 94%; left: 4%;">
+        <i class="fa fa-github" onclick=""></i>
+      <i class="fa fa-linkedin" onclick=""  style="padding-left: 20px;"></i>
+      </div>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="Project-script.js"></script>
+    <script src="JavaScripts/Project-script.js"></script>
+    <script src='JavaScripts/GeneralJS.js'></script>
     <script>
       var blocks = document.getElementsByClassName("block");
       var container = document.getElementsByClassName("container");

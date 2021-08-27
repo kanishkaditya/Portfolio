@@ -9,6 +9,8 @@ data['Type']='Portfolio';
 data['Role']='Web Developer';
 data['Client']='Personal Project';
 data['Info'] = 'A portfolio site made purely by HTML, CSS, and JQuery. One of My finest work';
+data['tint']='#161616';
+data['text_color']='#55729C';
 projects.push(data);
 data=Object();
 data['Date']='Feburary 2021';
@@ -16,26 +18,34 @@ data['Type']='Promotional';
 data['Role']='App Developer';
 data['Client']='Spec';
 data['Info'] = 'An app made for the student of Nit H. It was made under the Promotion of Spec';
+data['tint']='#1C2134';
+data['text_color']='#F04333';
 projects.push(data);
 data=Object();
 data['Date']='March 2021';
 data['Type']='Project';
-data['Role']='Data analyst';
+data['Role']='ML engineer';
 data['Client']='Personal Project';
 data['Info'] = 'A Machine learning project which makes a mask over the person in the image. It uses CGANs model';
+data['tint']='#1E1E1E';
+data['text_color']='#D2DCF2';
 projects.push(data);
 data=Object();
 data['Date']='June 2021';
 data['Type']='Personal';
 data['Role']='Flutter Developer';
 data['Client']='Vivek';
+data['tint']='rgb(81,84,67)';
+data['text_color']='#FFF1CE';
 data['Info'] = 'A Flutter Application which uses Pexels API in order to fetch images and display them in a beautiful UI';
 projects.push(data);
 data=Object();
 data['Date']='October 2020';
 data['Type']='Personal';
-data['Role']='Data analyst';
+data['Role']='ML engineer';
 data['Client']='Personal Project';
+data['tint']='#E8E7C8';
+data['text_color']='#00A8A9';
 data['Info'] = 'A machine learning model which uses genetic algorithm to play the snake game and acheive a perfect score';
 projects.push(data);
 
@@ -1246,57 +1256,7 @@ projects.push(data);
   )(13);
 });
 
-
-//cursor Management
-
-
-var size = "20px;";
-var border_radius = "50%;";
-var margin_top = "-10px;";
-var margin_left = "-10px;";
-var cursor = document.querySelector(".cursor");
-
-document.addEventListener("mousemove", function (event) {
-  cursor.setAttribute(
-    "style",
-    "top:" +
-      event.pageY +
-      "px ;" +
-      "left:" +
-      event.pageX +
-      "px ;" +
-      "height:" +
-      size +
-      "width:" +
-      size +
-      "border-radius:" +
-      border_radius +
-      "margin-top:" +
-      margin_top +
-      "margin-left:" +
-      margin_left
-  );
-});
-
-$(document).on(
-  {
-    mouseenter: function (event) {
-      size = "50px;";
-      border_radius = "25px;";
-      margin_top = "-25px;";
-      margin_left = "-25px;";
-    },
-    mouseleave: function (event) {
-      size = "20px;";
-      border_radius = "50%;";
-      margin_top = "-10px;";
-      margin_left = "-10px;";
-    },
-  },
-  ".hoverarea"
-);
-
-
+//! Scroller Div resetter
 setInterval(function(){
   for (var i = 0; i < 5; i++) {
     var d = new Date();
@@ -1312,46 +1272,65 @@ setInterval(function(){
 }, 250);
 
 
-//Layer Mangement
-var layerClass = ".left-layer";
+//!Layer Mangement
+
+var layerClass = ".right-layer";
 var layer = document.querySelector(layerClass);
 layer.classList.toggle("active");
 
-const button = document.querySelector(".about");
+const button = document.querySelector(".title-hover");
+const button2 = document.querySelector(".about");
 
-function pageRedirect() {
-  window.location.replace("index.html");
+function pageRedirect(ind) {
+  if(ind==1)
+  {
+    window.location.replace("../Home.html");
+  }
+  else if(ind==2)window.location.replace("../About.html")
 }
 
-button.addEventListener("click", () => {
-  setTimeout("pageRedirect()", 1000);
 
-  var layerClass = ".right-layer";
+button.addEventListener("click", () => {
+  setTimeout("pageRedirect(1)", 1000);
+
+  var layerClass = ".left-layer";
   var layer = document.querySelector(layerClass);
   layer.classList.toggle("active");
 });
 
+button2.addEventListener("click", () => {
+  setTimeout("pageRedirect(2)", 1000);
+
+  var layerClass = ".left-layer";
+  var layer = document.querySelector(layerClass);
+  layer.classList.toggle("active");
+});
+
+//!Card Management
 
 var current_open = -1;
 function cardOpen(block_name,key)
 {
-  // $('.container').children().not(block_name).forEach(element=>element.style.filter = "blur(6px)");
+  $('body').css({
+    color:projects[key]['text_color'],
+    'background-color':projects[key]['tint']
+  })
   document.querySelectorAll('.block')
   .forEach(function(element){
     if(!$(element).hasClass('block-' + (key+1)))
-    element.style.filter = "blur(6px)"}
+    element.style.filter = "blur(4px)"}
     );
   $(block_name).css({
     transform:
       "translateX(" +
-      (60 - (((2*key+1)*20 +(key+1)*12.5) - (scroll_value / 16))) +
+      ($(window).width()/32- (((2*key+1)*20 +(key+1)*12.5) - (scroll_value / 16))) +
       "rem)",
     "z-index": "10",
   });
 
   var card_front = $(block_name).find(".card-front");
   card_front.css({
-    width: "50rem",
+    width: "80rem",
   });
 
   card_front.addClass("hidden");
@@ -1359,14 +1338,14 @@ function cardOpen(block_name,key)
   var text_title = $(block_name).find(".card-title");
 
   text_title.css({
-    transform: "scale(5)",
-    left: "10rem",
-    top: "-20rem",
+    'font-size':'90px',
+    "padding-top":'20px',
+    "padding-left":'30px',
   });
 
   $('.divi'+(key+1)).animate({
     width:'10px',
-    'font-size':'12px',
+    'font-size':'14px',
     'padding-left':'5px',
     'padding-right':'2px'
   })
@@ -1379,6 +1358,10 @@ function cardOpen(block_name,key)
 }
 
 function cardClose(){
+  $('body').css({
+    'background-color':projects[0]['tint'],
+    color:projects[0]['text_color'],
+  })
   document.querySelectorAll('.block')
   .forEach(function(element){
     if(!$(element).hasClass('block-' + (current_open+1)))
@@ -1392,9 +1375,9 @@ function cardClose(){
   $(".block-" + (current_open + 1))
     .find(".card-title")
     .css({
-      transform: "scale(1)",
-      left: "0rem",
-      top: "0rem",
+      'font-size':'40px',
+      "padding-top":'60px',
+    "padding-left":'100px'
     });
     $('.divi'+(current_open+1)).animate({
       width:'0.2px',
@@ -1413,20 +1396,27 @@ function cardClose(){
   card_front.removeClass("hidden");
 }
 
-function card_info_remove()
+function card_info_remove(key)
 {
+  $('.Info, .brief, .Explore, .line').css({
+    color:projects[key]['text_color']
+  })
   //Info Screen Transition
 
   $('.C').css({
-    transform: 'translateY(34px)'});
+    'background-color':projects[key]['tint'],
+    height:'0px'
+  });
   $('.B').css({
-    transform: 'translateY(62px)'});
+    'background-color':projects[key]['tint'],
+    height:'0px'});
   $('.A').css({
-    transform: 'translateY(90px)'});
-
-  $('.brief').css({})
-    $('.E').css({
-      opacity:1.0});
+    'background-color':projects[key]['tint'],
+    height:'0px'});
+    $('.D').css({
+      'background-color':projects[key]['tint'],
+    height:'0px'});
+  // $('.brief').css({})
       $('.C').find('.Role').text("");
       $('.B').find('.Type').text("");
       $('.A').find('.Date').text("");
@@ -1435,48 +1425,64 @@ function card_info_remove()
 
     //Explore Transition
     $('.hider').css({
-      transform: 'translateY(-20px)'});
+      'background-color':projects[key]['tint'],
+      transform: 'translateY(-20px)'
+    });
 
       $('.hider1').css({
+        'background-color':projects[key]['tint'],
         transform: 'translateY(-30px)'});
         $('.hider2').css({
+          'background-color':projects[key]['tint'],
           transform: 'translateY(-80px)'});
 
     //line Transition
     $('.line').css({
+      'background-color':projects[key]['tint'],
       height:'0px'});
 }
 function card_info_change(key){
-  
+  $('.Info, .brief, .Explore, .line').css({
+    color:projects[key]['text_color']
+  })
   //INFO Screen Opening
   $('.C').find('.Role').text(projects[key]['Role']);
   $('.C').css({
-    transform: 'translateY(0px)'});
+    'background-color':projects[key]['tint'],
+    height:'30px'});
     $('.B').find('.Type').html(projects[key]['Type']);
   $('.B').css({
-    transform: 'translateY(0px)'});
+    'background-color':projects[key]['tint'],
+    height:'30px'});
     $('.A').find('.Date').text(projects[key]['Date']);
   $('.A').css({
-    transform: 'translateY(0px)'});
+    'background-color':projects[key]['tint'],
+    height:'30px'});
     $('.D').find('.Client').text(projects[key]['Client']);
-    $('.E').css({
-      opacity:0.0});
+    $('.D').css({
+      'background-color':projects[key]['tint'],
+      height:'30px'
+    });
       $('.brief').text(projects[key]['Info']);
 
       $('.hider2').css({
+        'background-color':projects[key]['tint'],
         transform: 'translateY(0px)'});
     
   
     //Explore
 
     $('.hider').css({
+      'background-color':projects[key]['tint'],
       transform: 'translateY(0px)'});
       $('.hider1').css({
+        'background-color':projects[key]['tint'],
         transform: 'translateY(0px)'});
 
       //line Transition
 
     $('.line').css({
+      'background-color':projects[key]['tint'],
       height:'46px'});
 }
 
@@ -1485,7 +1491,7 @@ $(window).on('wheel',function(event){
   if(current_open!=-1)
   {
     cardClose(current_open);
-    card_info_remove();
+    card_info_remove(0);
   current_open=-1;}
 });
 blocks.forEach(function (element, key, _) {
@@ -1498,10 +1504,11 @@ blocks.forEach(function (element, key, _) {
 
       //recovering original css
       cardClose();
-      card_info_remove();
+      card_info_remove(key);
       //new card
       cardOpen(block_name,key);
       setTimeout(function(){
+       if(current_open==-1)return;
         card_info_change(key);
       },500);
     }
@@ -1512,7 +1519,7 @@ $(document).on("keydown", function (event) {
   if (event.key == "Escape"  || event.keyCode==37 || event.keyCode==39) {
     if (current_open != -1) {
       cardClose();
-      card_info_remove();
+      card_info_remove(0);
       current_open = -1;
     }
   }

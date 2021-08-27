@@ -1,83 +1,119 @@
-
-/* @font-face {
-    font-family: 'firstFont';
-    src: url("../Fonts/firstFont.otf");
-    font-weight: 100;
-} */
+@import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
 :root{
     --white:#bac4b8;
-    --black:#141414;
+    --black:#161616;
 }
 *{
     padding:0;
     margin: 0;
-    box-sizing: border-box;
+}
+body{
+  font-family: 'Source Serif Pro', serif !important;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 a{
-    color:var(--white)
+    color:var(--white);
+    text-decoration: none;
+    border-bottom: 1px solid;
+    cursor: none;
 }
 #app{
-    display: grid;
-    font-weight:900;
-    height: 40%;
-    grid-template-columns: 1fr 2fr;
+  position: absolute;
+    top: 8%;
+    left: 50%;
+    font-weight:500;
     color: #bac4b8;
-    width: 100%;
 }
-@import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
+
 .title {
-    grid-column: 1 / -1;
-    font-family: "Prata", serif;
-    font-size: 5vw;
+    font-size: 4rem;
     margin-left: 20px;
     color: var(--white);
   }
-  .title2{
-    background-color: dimgray;
-    height: 110px;
-  }
-.skilldetails{
-  color: var(--white);
-  font-size: 16px;
-  margin-left: 10%;
-  line-height: 3vh;
-  width: 40%;
-  word-spacing: 3px;
-}
 
-.skills{
-  margin-top: 10%;
-  display: flex;
- 
-
-}
 
 #app:hover {
     opacity: 0.5;
   }
 .discription {
-    display: flex;
-    margin-top: 11%;
-    font-size: 14px;
+    margin-top: 10rem;
+    font-size: 16px;
+    margin-left: 2rem;
+    width: 150rem;
     line-height: 3vh;
     color: #bac4b8;
 }
 .contents{
-    margin-left: 2em;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top:60%;
+  left: 2%;
 }
 .contents ul{
+    top: 89%;
+    position: fixed;
     font-size: 14px;
+    padding-left: 10px;
     display: flex;
     list-style: none;
 }
 .links{
   margin-left: 20px;
 }
-.navbar{
+/* .navbar{
     display: flex;
-} 
-.close{
+}  */
+
+/* NavBar */
+
+.title-card {
+  position: absolute;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transform-origin: 200px;
+  transition: transform 200ms;
+}
+
+.title-hover:hover ~ .title-card { transform: rotateY(0.5turn); }
+.title-front {
+  position: relative;
+  backface-visibility: hidden;
+}
+.title-hover{
+  position: absolute;
+  width: 110px;
+  left: 100px;
+  z-index: 2;
+  top: 24px;
+  background-color: transparent;
+  height: 40px;
+}
+.title-back {
+  position: relative;
+  backface-visibility: hidden;
+  transform: rotateY(0.5turn);
+  top: 4px;
+  left:120px;
+  font-size: 30px;
+  font-size: 23px;
+  font-family: "Source Serif Pro', serif";
+
+}
+
+.title2{
+  position: relative;
+  top: 30px;
+  margin-left: 120px;
+  font-size: 30px;
+  font-size: 23px;
+  font-family: "Source Serif Pro', serif";
+}
+
+/* projects button */
+.projects{
    margin-top: 30px;
    margin-right: 40px;
    padding-bottom: 3px;
@@ -90,7 +126,7 @@ a{
    color:var(--white)
 }
 
-.close::after {
+.projects::after {
   content: "";
   position: absolute;
   height: 2px;
@@ -104,45 +140,17 @@ a{
   background: burlywood;
 }
 
-.close:hover {
+.projects:hover {
   transform: scale(1.2);
 }
-.Close:hover .close::after {
+.Close:hover .projects::after {
   transform: scaleX(1);
 }
-.fa-heart{
-color: red;
-}
-
 .About_me{
     width: 30%;
 }
-.grid{
-    position: absolute;
-    height: 300px;
-    padding-top:50px;
-    width: 100%;
-    padding-left: 40%;
-}
-.hello{
-  position: absolute;
-  background-color: burlywood;
-  top: 50px;
-  height: 200px;
-  width: 200px;
-  right: 20%;
-  font-size: 150px;
 
-}
-
-.row{
-    display: flex;
-}
-.col{
-    height: 4em;
-    width: 30%;
-}
-
+/* Keyframes for the Title Animation */
 @keyframes text-clip {
     from {
       clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
@@ -151,25 +159,7 @@ color: red;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     }
   }
-  
-  /* @keyframes outer-left {
-    from {
-      transform: translateX(50%);
-    }
-    to {
-      transform: none;
-    }
-  }
-  
-  @keyframes inner-left {
-    from {
-      transform: translateX(-50%);
-    }
-    to {
-      transform: none;
-    }
-  }
-   */
+
   @keyframes grid-clip {
     from {
       clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
@@ -181,6 +171,8 @@ color: red;
     }
   }
 
+
+  /* Title Animation */
   .contents{
       animation :grid-clip 1s 1s cubic-bezier(0.5, 0, 0.1, 1) both;
   }
@@ -218,71 +210,70 @@ color: red;
 }
 
 
-body:active{
-  animation: none !important;
-}
-
+/* Skills Section */
 
 .colored_skills {
-  padding-right: 10px;
-  display: flex;
-}
-
-
-.chars {
+  /* padding-right: 10px; */
   color: burlywood;
+  position: relative;
   display: flex;
-  margin-left: 10px;
   justify-content: center;
   align-items: center;
+  letter-spacing: 10px;
+  display: flex;
+  background-color: dimgray;
+  /* height: 110px;
+  width: 600px; */
+  padding-left: 20px;
   font-size: 24px;
-  cursor: pointer;
- 
+  flex-wrap: nowrap;
+}
+.skilldetails{
+color: var(--white);
+font-size: 16px;
+margin-left: 5%;
+line-height: 3vh;
+width: 40%;
+word-spacing: 3px;
 }
 
-.chars:hover{
-  /* box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.05),
-  inset 4px 4px 6px rgba(0, 0, 0, 0.2); */
-color: yellow;
-text-shadow: 0 0 15px yellow, 0 0 25px yellow;
-animation: glow 1.5s linear infinite;
+.skills{
+margin-top: 5%;
+display: flex;
+width: 100%;
 }
 
-
-@keyframes glow {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    filter: hue-rotate(360deg);
-  }
+#tags{
+  position: absolute;
+  left:65%;
+  top: -5%;
+  z-index:2;
 }
+/* Layers */
+
+
 .right-layer {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 10;
+  z-index: 100;
   top: auto;
   left: 0%;
   bottom: auto;
   right: auto;
-  background: var(--white);
+  background:#613645;
   transition: all 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .right-layer.active {
-  left:-100%;
+  left:100%;
 }
-
 .left-layer {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: auto;
-  z-index: 10;
+  z-index: 100;
   left: -100%;
-  bottom: auto;
-  right: auto;
-  background: #bac4b8;
+  background: #613645;
   transition: all 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .left-layer.active {

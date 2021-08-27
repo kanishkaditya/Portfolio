@@ -210,7 +210,7 @@ THE SOFTWARE.
       radius: "70%",
       radiusMin: 75,
       bgDraw: !0,
-      bgColor: "#141414",
+      bgColor: "#161616",
       opacityOver: 1,
       opacityOut: 0.05,
       opacitySpeed: 6,
@@ -265,17 +265,6 @@ THE SOFTWARE.
       };
     })(jQuery);
 
-
-    // var hello=document.getElementById('hello');
-    // window.addEventListener('scroll',(event)=>{
-    //   console.log(window.scrollY);
-    //   if(window.scrollY>=100)hello.style.position='static';
-    //   else if(window.scrollY<100)
-    //     hello.style.position='fixed';
-      
-    // });
-
-
  $(document).ready(function(){
   var sw=true;
   $(window).scroll(function () {
@@ -319,7 +308,7 @@ THE SOFTWARE.
       radius: "65%",
       radiusMin: 75,
       bgDraw: true,
-      bgcolor: "#000",
+      bgcolor: "#161616",
       opacityOver: 1.0,
       opacityOut: 0.05,
       opacitySpeed: 6,
@@ -333,22 +322,21 @@ THE SOFTWARE.
     $("#tags").svg3DTagCloud(settings);
   });
 
-    
+
   var layerClass = ".right-layer";
   var layer = document.querySelector(layerClass);
   layer.classList.toggle("active");
-
-const button = document.querySelector(".close");
-
-function pageRedirect() {
-  window.location.replace("Projects.html");
-}
-
-button.addEventListener("click", () => {
-  setTimeout("pageRedirect()", 1000);
-
-  var layerClass = ".left-layer";
-  var layer = document.querySelector(layerClass);
-  layer.classList.toggle("active");
   
-});
+  const button = document.querySelector(".title-hover");
+  
+  function pageRedirect() {
+    window.location.replace("../Home.html");
+  }
+  
+  button.addEventListener("click", () => {
+    setTimeout("pageRedirect()", 1000);
+  
+    var layerClass = ".left-layer";
+    var layer = document.querySelector(layerClass);
+    layer.classList.toggle("active");
+  });
