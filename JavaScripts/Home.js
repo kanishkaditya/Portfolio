@@ -1,16 +1,18 @@
 
-var layerClass = ".right-layer";
+setTimeout(function(){
+  var layerClass = ".right-layer";
 var layer = document.querySelector(layerClass);
 layer.classList.toggle("active");
+},500);
 
 const button1 = document.querySelector(".projects");
 const button2 = document.querySelector(".about");
 
 function pageRedirect(ind) {
   if(ind==1)
-    window.location="https://kanishkaditya.github.io/Portfolio/Projects.html";
+    window.location="../Projects.html";
   else if(ind ==2 )
-  window.location="https://kanishkaditya.github.io/Portfolio/About.html";
+  window.location="../About.html";
 }
 
 button1.addEventListener("click", () => {

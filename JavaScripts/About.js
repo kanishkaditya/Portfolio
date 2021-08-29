@@ -323,9 +323,11 @@ THE SOFTWARE.
   });
 
 
-  var layerClass = ".right-layer";
+  setTimeout(function(){
+    var layerClass = ".right-layer";
   var layer = document.querySelector(layerClass);
   layer.classList.toggle("active");
+  },500);
   
   const button = document.querySelector(".title-hover");
   
