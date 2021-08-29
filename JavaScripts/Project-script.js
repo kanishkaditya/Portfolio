@@ -1451,7 +1451,7 @@ function card_info_change(key){
     height:'46px'
   });
   $('.brief').css({
-    height:'30px'
+    height:'34px'
   });
   //INFO Screen Opening
   $('.C').find('.Role').text(projects[key]['Role']);
