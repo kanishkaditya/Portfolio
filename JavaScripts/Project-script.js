@@ -1291,9 +1291,9 @@ const button2 = document.querySelector(".about");
 function pageRedirect(ind) {
   if(ind==1)
   {
-    window.location.replace("https://kanishkaditya.github.io/Portfolio/");
+    window.location.replace("../Portfolio/");
   }
-  else if(ind==2){window.location.replace("https://kanishkaditya.github.io/Portfolio/About.html")}
+  else if(ind==2){window.location.replace("..About.html")}
 }
 
 
@@ -1334,16 +1334,16 @@ function cardOpen(block_name,key)
   $(block_name).css({
     transform:
       "translateX(" +
-      ($(window).width()/32- (((2*key+1)*20 +(key+1)*12.5) - (scroll_value / 16))) +
-      "rem)",
+      ($(window).width()/32- (((2*key+1)*20 +(key+1)*12.5) - (scroll_value / 16))) *0.83 +
+      "vw)",
       'z-index':'12'
   });
 
 
   var card_front = $(block_name).find(".card-front");
   card_front.css({
-    height:'42rem',
-    width: "80rem",
+    height:'69.5vh',
+    width: "66.66vw",
   });
 
   card_front.addClass("hidden");
@@ -1402,8 +1402,8 @@ function cardClose(){
     })
   var card_front = $(".block-" + (current_open + 1)).find(".card-front");
   card_front.css({
-    height:'40rem',
-    width: "40rem",
+    height:'66.25vh',
+    width: "33.33vw",
   });
   $(".hoverarea").css({
     "pointer-events": "all",
