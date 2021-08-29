@@ -104,8 +104,8 @@ THE SOFTWARE.
         (r.link = document.createElementNS(E, "a")),
         r.link.setAttributeNS(
           "http://www.w3.org/1999/xlink",
-          "xlink:href",
-          e.url
+          "href",
+          "javascript:void(0);"
         ),
         r.link.setAttribute("target", e.target),
         r.link.addEventListener("mouseover", f, !0),
@@ -317,7 +317,7 @@ THE SOFTWARE.
       fontFamily: "Monument Extended",
       fontSize: "30",
       fontWeight: "bold",
-      fontColor: "#bac4b8",
+      fontColor: "white",
     };
     $("#tags").svg3DTagCloud(settings);
   });

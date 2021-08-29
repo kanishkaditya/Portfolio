@@ -178,3 +178,6 @@ ul > *{
 .left-layer.active {
   left: 0%;
 }
+.links{
+  margin-right: 20px;
+}

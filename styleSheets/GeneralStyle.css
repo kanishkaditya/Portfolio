@@ -8,6 +8,8 @@ body {
   padding: 0;
   height: 100%;
   overflow-y: hidden;
+  font-display: swap;
+  font-family: local('Pacifico Regular');
   overflow-x: hidden;
   cursor: none;
   color: #fff;

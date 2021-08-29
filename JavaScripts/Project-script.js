@@ -10,7 +10,8 @@ data['Role']='Web Developer';
 data['Client']='Personal Project';
 data['Info'] = 'A portfolio site made purely by HTML, CSS, and JQuery. One of My finest work';
 data['tint']='#161616';
-data['text_color']='#55729C';
+data['text_color']='white';
+ data['link']="";
 projects.push(data);
 data=Object();
 data['Date']='Feburary 2021';
@@ -19,7 +20,8 @@ data['Role']='App Developer';
 data['Client']='Spec';
 data['Info'] = 'An app made for the student of Nit H. It was made under the Promotion of Spec';
 data['tint']='#1C2134';
-data['text_color']='#F04333';
+data['text_color']='#FFF1CE';
+data['link']="https://github.com/kanishkaditya/SPEC_App.git";
 projects.push(data);
 data=Object();
 data['Date']='March 2021';
@@ -28,7 +30,8 @@ data['Role']='ML engineer';
 data['Client']='Personal Project';
 data['Info'] = 'A Machine learning project which makes a mask over the person in the image. It uses CGANs model';
 data['tint']='#1E1E1E';
-data['text_color']='#D2DCF2';
+data['text_color']='#FFF1CE';
+data['link']="https://github.com/kanishkaditya/Capture-it-openly.git";
 projects.push(data);
 data=Object();
 data['Date']='June 2021';
@@ -38,15 +41,17 @@ data['Client']='Vivek';
 data['tint']='rgb(81,84,67)';
 data['text_color']='#FFF1CE';
 data['Info'] = 'A Flutter Application which uses Pexels API in order to fetch images and display them in a beautiful UI';
+data['link']="https://github.com/vivekdusad/vibez.git";
 projects.push(data);
 data=Object();
 data['Date']='October 2020';
 data['Type']='Personal';
 data['Role']='ML engineer';
 data['Client']='Personal Project';
-data['tint']='#E8E7C8';
-data['text_color']='#00A8A9';
+data['tint']='#7a6e5c';
+data['text_color']='#e0c8a4';
 data['Info'] = 'A machine learning model which uses genetic algorithm to play the snake game and acheive a perfect score';
+data["link"]="";
 projects.push(data);
 
 !(function (t) {
@@ -1311,6 +1316,10 @@ button2.addEventListener("click", () => {
 var current_open = -1;
 function cardOpen(block_name,key)
 {
+  $('.fa-linkedin, .fa-envelope').css({'font-size':'0px'});
+  if(projects[key]['link']!="")
+  $('.fa-github').attr('onclick',"window.location.href = '" + projects[key]['link'] + "'");
+  else $('.fa-github').css({'font-size':'0px'});
   $('body').css({
     color:projects[key]['text_color'],
     'background-color':projects[key]['tint']
@@ -1325,11 +1334,13 @@ function cardOpen(block_name,key)
       "translateX(" +
       ($(window).width()/32- (((2*key+1)*20 +(key+1)*12.5) - (scroll_value / 16))) +
       "rem)",
-    "z-index": "10",
+      'z-index':'12'
   });
+
 
   var card_front = $(block_name).find(".card-front");
   card_front.css({
+    height:'42rem',
     width: "80rem",
   });
 
@@ -1358,6 +1369,8 @@ function cardOpen(block_name,key)
 }
 
 function cardClose(){
+  $('.fa-github, .fa-linkedin, .fa-envelope').css({'font-size':'16px'});
+  $('.fa-github').attr('onclick',"window.location.href = 'https://github.com/kanishkaditya'");
   $('body').css({
     'background-color':projects[0]['tint'],
     color:projects[0]['text_color'],
@@ -1369,7 +1382,7 @@ function cardClose(){
     );
   $(".block-" + (current_open + 1)).css({
     transform: "translateX(" + 0 + "rem)",
-    "z-index": "0",
+    'z-index':'0'
   });
 
   $(".block-" + (current_open + 1))
@@ -1387,6 +1400,7 @@ function cardClose(){
     })
   var card_front = $(".block-" + (current_open + 1)).find(".card-front");
   card_front.css({
+    height:'40rem',
     width: "40rem",
   });
   $(".hoverarea").css({
@@ -1404,17 +1418,15 @@ function card_info_remove(key)
   //Info Screen Transition
 
   $('.C').css({
-    'background-color':projects[key]['tint'],
     height:'0px'
   });
   $('.B').css({
-    'background-color':projects[key]['tint'],
+
     height:'0px'});
   $('.A').css({
-    'background-color':projects[key]['tint'],
+
     height:'0px'});
     $('.D').css({
-      'background-color':projects[key]['tint'],
     height:'0px'});
   // $('.brief').css({})
       $('.C').find('.Role').text("");
@@ -1422,68 +1434,42 @@ function card_info_remove(key)
       $('.A').find('.Date').text("");
       $('.D').find('.Client').text("");
       $('.brief').text("");
-
-    //Explore Transition
-    $('.hider').css({
-      'background-color':projects[key]['tint'],
-      transform: 'translateY(-20px)'
-    });
-
-      $('.hider1').css({
-        'background-color':projects[key]['tint'],
-        transform: 'translateY(-30px)'});
-        $('.hider2').css({
-          'background-color':projects[key]['tint'],
-          transform: 'translateY(-80px)'});
-
-    //line Transition
-    $('.line').css({
-      'background-color':projects[key]['tint'],
-      height:'0px'});
+      $('.Explore, .line, .brief').css({
+        height:'0px'
+      })
 }
 function card_info_change(key){
   $('.Info, .brief, .Explore, .line').css({
     color:projects[key]['text_color']
-  })
+  });
+  $('.Explore').css({
+    height:'30px'
+  });
+  $('.line').css({
+    height:'46px'
+  });
+  $('.brief').css({
+    height:'30px'
+  });
   //INFO Screen Opening
   $('.C').find('.Role').text(projects[key]['Role']);
   $('.C').css({
-    'background-color':projects[key]['tint'],
+    
     height:'30px'});
     $('.B').find('.Type').html(projects[key]['Type']);
   $('.B').css({
-    'background-color':projects[key]['tint'],
+
     height:'30px'});
     $('.A').find('.Date').text(projects[key]['Date']);
   $('.A').css({
-    'background-color':projects[key]['tint'],
+
     height:'30px'});
     $('.D').find('.Client').text(projects[key]['Client']);
     $('.D').css({
-      'background-color':projects[key]['tint'],
       height:'30px'
     });
       $('.brief').text(projects[key]['Info']);
 
-      $('.hider2').css({
-        'background-color':projects[key]['tint'],
-        transform: 'translateY(0px)'});
-    
-  
-    //Explore
-
-    $('.hider').css({
-      'background-color':projects[key]['tint'],
-      transform: 'translateY(0px)'});
-      $('.hider1').css({
-        'background-color':projects[key]['tint'],
-        transform: 'translateY(0px)'});
-
-      //line Transition
-
-    $('.line').css({
-      'background-color':projects[key]['tint'],
-      height:'46px'});
 }
 
 var blocks = document.querySelectorAll(".block");
@@ -1506,8 +1492,9 @@ blocks.forEach(function (element, key, _) {
       cardClose();
       card_info_remove(key);
       //new card
-      cardOpen(block_name,key);
+    
       setTimeout(function(){
+        cardOpen(block_name,key);
        if(current_open==-1)return;
         card_info_change(key);
       },500);
