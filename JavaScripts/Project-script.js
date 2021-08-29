@@ -1291,7 +1291,7 @@ function pageRedirect(ind) {
   {
     window.location.replace("https://kanishkaditya.github.io/Portfolio/");
   }
-  else if(ind==2)window.location.replace("https://kanishkaditya.github.io/Portfolio/About.html")
+  else if(ind==2){window.location.replace("https://kanishkaditya.github.io/Portfolio/About.html")}
 }
 
 
