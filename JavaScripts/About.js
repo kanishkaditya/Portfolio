@@ -330,7 +330,7 @@ THE SOFTWARE.
   const button = document.querySelector(".title-hover");
   
   function pageRedirect() {
-    window.location.replace(window.location.pathname + "Home.html");
+    window.location.replace("https://github.com/kanishkaditya/Portfolio/");
   }
   
   button.addEventListener("click", () => {
