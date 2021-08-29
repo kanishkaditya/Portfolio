@@ -10,9 +10,9 @@ const button2 = document.querySelector(".about");
 
 function pageRedirect(ind) {
   if(ind==1)
-    window.location="../Projects.html";
+    window.location="https://kanishkaditya.github.io/Portfolio/Projects.html";
   else if(ind ==2 )
-  window.location="../About.html";
+  window.location="https://kanishkaditya.github.io/Portfolio/About.html";
 }
 
 button1.addEventListener("click", () => {
