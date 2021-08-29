@@ -1289,9 +1289,9 @@ const button2 = document.querySelector(".about");
 function pageRedirect(ind) {
   if(ind==1)
   {
-    window.location.replace("https://github.com/kanishkaditya/Portfolio/");
+    window.location.replace("https://kanishkaditya.github.io/Portfolio/");
   }
-  else if(ind==2)window.location.replace("https://github.com/kanishkaditya/Portfolio/About.html")
+  else if(ind==2)window.location.replace("https://kanishkaditya.github.io/Portfolio/About.html")
 }
 
 
