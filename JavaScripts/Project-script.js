@@ -1291,7 +1291,7 @@ function pageRedirect(ind) {
   {
     window.location.replace("Home.html");
   }
-  else if(ind==2)window.location.replace("About.html")
+  else if(ind==2)window.location.replace(window.location.pathname + "About.html")
 }
 
 

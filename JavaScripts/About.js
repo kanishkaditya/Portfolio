@@ -330,7 +330,7 @@ THE SOFTWARE.
   const button = document.querySelector(".title-hover");
   
   function pageRedirect() {
-    window.location.replace("Home.html");
+    window.location.replace(window.location.pathname + "Home.html");
   }
   
   button.addEventListener("click", () => {
