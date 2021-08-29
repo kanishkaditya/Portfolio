@@ -10,9 +10,9 @@ const button2 = document.querySelector(".about");
 
 function pageRedirect(ind) {
   if(ind==1)
-    window.location.replace("../Projects.html");
+    window.location.replace("https://kanishkaditya.github.io/Portfolio/Projects.html");
   else if(ind ==2 )
-  window.location.replace("../About.html");
+  window.location.replace("https://kanishkaditya.github.io/Portfolio/About.html");
 }
 
 button1.addEventListener("click", () => {
