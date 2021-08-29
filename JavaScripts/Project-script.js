@@ -1289,9 +1289,9 @@ const button2 = document.querySelector(".about");
 function pageRedirect(ind) {
   if(ind==1)
   {
-    window.location.replace("./Home.html");
+    window.location.replace("Home.html");
   }
-  else if(ind==2)window.location.replace("./About.html")
+  else if(ind==2)window.location.replace("About.html")
 }
 
 
