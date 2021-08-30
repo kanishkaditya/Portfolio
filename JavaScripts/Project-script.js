@@ -1187,7 +1187,7 @@ projects.push(data);
                         (this.vars.scrollTarget - this.vars.scrollValue) *
                         this.vars.spring;
                       scroll_value = this.vars.scrollValue;
-                      console.log(scroll_value);
+            
                       var t = this.vars.scrollTarget - this.vars.scrollValue,
                         e = t / this.options.skewReducer;
                       (this.vars.speed = this._clamp(
@@ -1335,7 +1335,7 @@ function cardOpen(block_name,key)
   $(block_name).css({
     transform:
       "translateX(" +
-      (1920/(2) - (((2*key+1)*15*rems +(key+1)*10*rems) - (scroll_value))) +
+      (1920/(2*(window.devicePixelRatio)) - (((2*key+1)*15*rems +(key+1)*10*rems) - (scroll_value))) +
       "px)",
       'z-index':'12'
   });
