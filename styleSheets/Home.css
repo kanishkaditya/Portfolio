@@ -95,7 +95,7 @@ ul > *{
    bottom: 0%;
    width: 100%;
    left: 0%;
- 
+   
    transform: scaleX(0);
    transition: transform 300ms ease;
    transform-origin: left;
@@ -115,8 +115,8 @@ ul > *{
   margin-right: 6.25rem;
   padding-bottom: 0.1875rem;
   border: none;
-  right: 0%;
   font-size: 1rem;
+  right: 0%;
   position: absolute;
   transition: transform 100ms ease;
   background-color: var(--black);
