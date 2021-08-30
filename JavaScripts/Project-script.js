@@ -1326,7 +1326,7 @@ function cardOpen(block_name,key)
   $('body').css({
     color:projects[key]['text_color'],
     'background-color':projects[key]['tint']
-  })
+  });
   document.querySelectorAll('.block')
   .forEach(function(element){
     if(!$(element).hasClass('block-' + (key+1)))
@@ -1378,7 +1378,7 @@ function cardClose(){
   $('body').css({
     'background-color':projects[0]['tint'],
     color:projects[0]['text_color'],
-  })
+  });
   document.querySelectorAll('.block')
   .forEach(function(element){
     if(!$(element).hasClass('block-' + (current_open+1)))

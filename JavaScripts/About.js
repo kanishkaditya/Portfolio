@@ -285,28 +285,53 @@ THE SOFTWARE.
       }
   })}
   );
-  $(document).ready(function () {
-    var entries = [
-      { label: "Flutter" },
-      { label: "C++" },
-      { label: "Python" },
-      { label: "Machine Learning" },
-      { label: "Deep Learning" },
-      { label: "HTML" },
-      { label: "CSS" },
-      { label: "Java script" },
-      { label: "Jquery" },
-      { label: "Problem Solving" },
-      { label: "DSA" },
-      { label: "Django" },
-    ];
 
+  var entries = [
+    { label: "Flutter" },
+    { label: "C++" },
+    { label: "Python" },
+    { label: "Machine Learning" },
+    { label: "Deep Learning" },
+    { label: "HTML" },
+    { label: "CSS" },
+    { label: "Java script" },
+    { label: "Jquery" },
+    { label: "Problem Solving" },
+    { label: "DSA" },
+    { label: "Django" },
+  ];
+  var res=1;
+  setInterval(function () {
+    if (res!=window.devicePixelRatio) {
+      var settings = {
+        entries: entries,
+        width: 640*(2-window.devicePixelRatio),
+        height: 480*(2-window.devicePixelRatio),
+        radius: "65%",
+        radiusMin: 75*(2-window.devicePixelRatio),
+        bgDraw: true,
+        bgcolor: "#161616",
+        opacityOver: 1.0,
+        opacityOut: 0.05,
+        opacitySpeed: 6,
+        fov: 800,
+        speed: 2,
+        fontFamily: "Monument Extended",
+        fontSize: (30*(2-window.devicePixelRatio))+"",
+        fontWeight: "bold",
+        fontColor: "white",
+      };
+      $("#tags").svg3DTagCloud(settings);
+      res=window.devicePixelRatio;
+    }
+}, 50);
+  $(document).ready(function () {
     var settings = {
       entries: entries,
-      width: 640,
-      height: 480,
+      width: 640*(2-window.devicePixelRatio),
+      height: 480*(2-window.devicePixelRatio),
       radius: "65%",
-      radiusMin: 75,
+      radiusMin: 75*(2-window.devicePixelRatio),
       bgDraw: true,
       bgcolor: "#161616",
       opacityOver: 1.0,
@@ -315,13 +340,14 @@ THE SOFTWARE.
       fov: 800,
       speed: 2,
       fontFamily: "Monument Extended",
-      fontSize: "30",
+      fontSize: (30*(2-window.devicePixelRatio))+"",
       fontWeight: "bold",
       fontColor: "white",
     };
     $("#tags").svg3DTagCloud(settings);
+   
+   res=window.devicePixelRatio;
   });
-
 
   setTimeout(function(){
     var layerClass = ".right-layer";

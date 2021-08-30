@@ -2,8 +2,9 @@
 :root{
     --white:white;
     --black:#161616;
-    --df:16;
+    --df:20;
 }
+
 body{
   font-family: 'Source Serif Pro', serif !important;
   overflow-x: hidden;
@@ -18,15 +19,15 @@ body{
 }
 #app{
   position: absolute;
-    top: 1.2rem;
-    left: 50%;
+    top:calc(1.2px*var(--df));
+    left: calc(45px*var(--df));
     font-weight:500;
     color: white;
 }
 
 .title {
-    font-size: 4rem;
-    margin-left: 20px;
+    font-size: calc(4px*var(--df));
+    margin-left: var(--df);
     color: var(--white);
   }
 
@@ -34,26 +35,25 @@ body{
 #app:hover {
     opacity: 0.5;
   }
-.discription {
-    margin-top: 10rem;
-    font-size: 16px;
-    margin-left: 2rem;
-    width: 150rem;
-    line-height: 3vh;
+  .discription {
+    margin-top: calc(5px*var(--df));
+    font-size: car(1px*var(--df));
+    width: calc(50px*var(--df));
+    line-height: calc(1.4px*var(--df));
     color: white;
 }
 .contents{
   height: 100%;
   width: 100%;
   position: absolute;
-  top:60%;
+  top:calc(27px*var(--df));
   left: 2%;
 }
 .contents ul{
-    top: 89%;
+    top: calc((966px *(89 *var(--df)/(100*16))));
     position: fixed;
-    font-size: 14px;
-    padding-left: 10px;
+    font-size: var(--df);
+    padding-left: var(10px *var(--df)/16);
     display: flex;
     list-style: none;
 }
@@ -75,7 +75,7 @@ a {
   position: absolute;
   backface-visibility: hidden;
   transform-style: preserve-3d;
-  transform-origin: 200px;
+  transform-origin: calc(150px * var(--df)/16);
   transition: transform 200ms;
 }
 
@@ -109,47 +109,8 @@ a {
   position: relative;
   top: 30px;
   margin-left: 120px;
-  font-size: 30px;
   font-size: 23px;
   font-family: "Source Serif Pro', serif";
-}
-
-/* projects button */
-.projects{
-   margin-top: 30px;
-   margin-right: 40px;
-   padding-bottom: 3px;
-   border: none;
-   right: 0%;
-   font-size: 1rem;
-   position: fixed;
-   transition: transform 100ms ease;
-   background-color: var(--black);
-   color:var(--white)
-}
-
-.projects::after {
-  content: "";
-  position: absolute;
-  height: 2px;
-  bottom: 0%;
-  width: 100%;
-  left: 0%;
-
-  transform: scaleX(0);
-  transition: transform 300ms ease;
-  transform-origin: left;
-  background: burlywood;
-}
-
-.projects:hover {
-  transform: scale(1.2);
-}
-.Close:hover .projects::after {
-  transform: scaleX(1);
-}
-.About_me{
-    width: 30%;
 }
 
 /* Keyframes for the Title Animation */
@@ -219,6 +180,7 @@ a {
   color: burlywood;
   position: relative;
   display: flex;
+  margin-top: calc(11px * var(--df));
   justify-content: center;
   align-items: center;
   letter-spacing: 10px;
@@ -226,32 +188,149 @@ a {
   background-color: dimgray;
   /* height: 110px;
   width: 600px; */
-  padding-left: 20px;
+  padding-left: 10px;
   font-size: 24px;
   flex-wrap: nowrap;
 }
 .skilldetails{
 color: var(--white);
+margin-top: calc(11px * var(--df));
 font-size: 16px;
-margin-left: 5%;
-line-height: 3vh;
-width: 40%;
+margin-left: calc(10px * (var(--df)/16));
+line-height: calc(14px*1.25);
+width: 100%;
 word-spacing: 3px;
 }
 
 .skills{
-margin-top: 5%;
 display: flex;
 width: 100%;
 }
 
 #tags{
   position: absolute;
-  left:65%;
-  top: -5%;
+  right:2%;
   z-index:2;
 }
-/* Layers */
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25),
+  only screen and (min--moz-device-pixel-ratio: 1.25),
+  only screen and (min-device-pixel-ratio: 1.25),
+  only screen and (min-resolution: 125dpi)
+  {
+    :root{
+      --df:16;
+  }
+  
+  #app{
+      top:calc(1.2px*var(--df));
+      left: calc(45px*var(--df));
+    }
+  
+  .title {
+      font-size: calc(4px*var(--df));
+    }
+  
+  
+  .discription {
+      margin-top: calc(5px*var(--df));
+      font-size: 14px;
+      width: calc(50px*var(--df));
+      line-height: calc(1.4px*var(--df));
+      color: white;
+  }
+  .contents{
+    top:calc(27px*var(--df));
+  }
+  .contents ul{
+      font-size: 16px;
+  }
+  a {
+    color:var(--white);
+    margin-top: 30px;
+    text-decoration: none;
+  }
+ 
+  /* NavBar */
+  
+  .title-card {
+    transform-origin: calc(200px * var(--df)/16);
+  }
+  
+  /* Keyframes for the Title Animation */
+  @keyframes text-clip {
+      from {
+        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+      }
+      to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      }
+    }
+  
+    @keyframes grid-clip {
+      from {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+        opacity: 0;
+      }
+      to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        opacity: 1;
+      }
+    }
+  
+  
+    /* Title Animation */
+    .contents{
+        animation :grid-clip 1s 1s cubic-bezier(0.5, 0, 0.1, 1) both;
+    }
+  
+    .cafe,
+  .mozart {
+    animation: outer-left 1s 1s cubic-bezier(0.5, 0, 0.1, 1) both;
+  }
+  
+  .title-inner {
+    display: inline-block;
+    animation: inner-left 1s 1s ease both;
+  }
+  
+  .cafe-inner {
+    display: inline-block;
+    animation: inner-left 1s 1s ease both,
+      text-clip 1s 0s cubic-bezier(0.5, 0, 0.1, 1) both;
+  }
+  
+  .mozart-inner, .row1 {
+    animation: text-clip 1s 0s cubic-bezier(0.5, 0, 0.1, 1) both;
+  }
+  
+  .title {
+    animation: outer-left 1s 1s ease both;
+  }
+  
+  .cafe .cafe-inner {
+      display: inline-block;
+    }
+  
+  .mozart {
+    display: inline-block;
+  }
+  
+  /* Skills Section */
+
+.colored_skills {
+  margin-top: calc(8.5px * var(--df));
+}
+.skilldetails{
+margin-top: calc(8.5px * var(--df));
+margin-left: calc(10px * (var(--df)/16));
+font-size:14px;
+line-height: 14px;
+}
+  }
+
+  /* Layers */
 
 
 .right-layer {
