@@ -22,9 +22,6 @@ body{
   transition: 500ms ease;
   height: calc(38px * var(--df));
 }
-/* .Project-detail-title{
-
-} */
 .card-content {
   position: absolute;
   transform-style: preserve-3d;
@@ -369,6 +366,7 @@ hr {
   only screen and (min-device-pixel-ratio: 1.25),
   only screen and (min-resolution: 125dpi)
   {
+
     
     :root{
       --df: 16;
@@ -378,6 +376,7 @@ hr {
       width: calc(40px * var(--df));
       height: calc(38px * var(--df));
     }
+
     .hoverarea{
       height: calc(13px * var(--df));
       width: calc(13px * var(--df));
@@ -399,7 +398,6 @@ hr {
       font-size: calc(0.875px * var(--df));
       width: calc(20px * var(--df));
     }
-    
     .card-front::before {
       --spacer: calc(0.9375px * var(--df));
     }
@@ -413,6 +411,7 @@ hr {
     .container {
       margin-top: calc(5.5px * var(--df));
       margin-left: calc(10px * var(--df));
+      width: 100%;
     }
     
     .smalldivi {
