@@ -15,12 +15,12 @@ body{
   background-color: #161616;
 }
 
-
 /* Card */
 .block {
   position: relative;
   width: calc(40px * var(--df));
   transition: 500ms ease;
+  height: calc(38px * var(--df));
 }
 /* .Project-detail-title{
 
@@ -377,6 +377,7 @@ hr {
     /* Card */
     .block {
       width: calc(40px * var(--df));
+      height: calc(38px * var(--df));
     }
     .hoverarea{
       height: calc(13px * var(--df));

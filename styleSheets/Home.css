@@ -248,7 +248,7 @@ ul > px*{
     }
     
     .fact{
-      font-size: calc(1.2 px* var(--df)) ; 
+      font-size: calc(1.2px* var(--df)) ; 
     }
     .title{ 
         left:calc(39px*var(--df)) ;
