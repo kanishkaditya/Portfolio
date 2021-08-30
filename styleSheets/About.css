@@ -21,7 +21,7 @@ body{
 }
 #app{
   position: absolute;
-    top: 8%;
+    top: 1.2rem;
     left: 50%;
     font-weight:500;
     color: white;

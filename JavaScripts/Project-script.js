@@ -1318,6 +1318,7 @@ button2.addEventListener("click", () => {
 var current_open = -1;
 function cardOpen(block_name,key)
 {
+  var rems=16*(2.25-window.devicePixelRatio);
   $('.fa-linkedin, .fa-envelope').css({'font-size':'0px'});
   if(projects[key]['link']!="")
   $('.fa-github').attr('onclick',"window.location.href = '" + projects[key]['link'] + "'");
@@ -1334,16 +1335,16 @@ function cardOpen(block_name,key)
   $(block_name).css({
     transform:
       "translateX(" +
-      (48- (((2*key+1)*15 +(key+1)*10) - (scroll_value / (16*(2.25-window.devicePixelRatio))))) +
-      "rem)",
+      (48- (((2*key+1)*15 +(key+1)*10) - (scroll_value / (rems))))*16 +
+      "px)",
       'z-index':'12'
   });
 
 
   var card_front = $(block_name).find(".card-front");
   card_front.css({
-    height: 31+'rem',
-    width: 63+'rem',
+    height: 31*rems+'px',
+    width: 63*rems+'px',
   });
 
   card_front.addClass("hidden");
@@ -1351,9 +1352,9 @@ function cardOpen(block_name,key)
   var text_title = $(block_name).find(".card-title");
 
   text_title.css({
-    'font-size':'5.625rem',
-    "padding-top":'1.25rem',
-    "padding-left":'1.875rem',
+    'font-size':(5.625*rems) +'px',
+    "padding-top":(1.25*rems)+'px',
+    "padding-left":(1.875*rems)+'px',
   });
 
   $('.divi'+(key+1)).animate({
@@ -1371,7 +1372,8 @@ function cardOpen(block_name,key)
 }
 
 function cardClose(){
-  $('.fa-github, .fa-linkedin, .fa-envelope').css({'font-size':'1rem'});
+  var rems=16*(2.25-window.devicePixelRatio);
+  $('.fa-github, .fa-linkedin, .fa-envelope').css({'font-size':'16px'});
   $('.fa-github').attr('onclick',"window.location.href = 'https://github.com/kanishkaditya'");
   $('body').css({
     'background-color':projects[0]['tint'],
@@ -1383,27 +1385,27 @@ function cardClose(){
     element.style.filter = "blur(0px)"}
     );
   $(".block-" + (current_open + 1)).css({
-    transform: "translateX(" + 0 + "rem)",
+    transform: "",
     'z-index':'0'
   });
 
   $(".block-" + (current_open + 1))
     .find(".card-title")
     .css({
-      'font-size':'2.3rem',
-      "padding-top":'3.75rem',
-    "padding-left":'2.6rem'
+      'font-size':'',
+      "padding-top":'',
+    "padding-left":''
     });
     $('.divi'+(current_open+1)).animate({
-      width:'0.2px',
-      'font-size':'0px',
-      'padding-left':'0px',
-      'padding-right':'0px'
+      width:'',
+      'font-size':'',
+      'padding-left':'',
+      'padding-right':''
     })
   var card_front = $(".block-" + (current_open + 1)).find(".card-front");
   card_front.css({
-    height:30+'rem',
-    width: 30+'rem',
+    height:'',
+    width: '',
   });
   $(".hoverarea").css({
     "pointer-events": "all",
@@ -1420,16 +1422,16 @@ function card_info_remove(key)
   //Info Screen Transition
 
   $('.C').css({
-    height:'0px'
+    height:''
   });
   $('.B').css({
 
-    height:'0px'});
+    height:''});
   $('.A').css({
 
-    height:'0px'});
+    height:''});
     $('.D').css({
-    height:'0px'});
+    height:''});
   // $('.brief').css({})
       $('.C').find('.Role').text("");
       $('.B').find('.Type').text("");
@@ -1437,38 +1439,39 @@ function card_info_remove(key)
       $('.D').find('.Client').text("");
       $('.brief').text("");
       $('.Explore, .line, .brief').css({
-        height:'0px'
+        height:''
       })
 }
 function card_info_change(key){
+  var rems=16*(2.25-window.devicePixelRatio);
   $('.Info, .brief, .Explore, .line').css({
     color:projects[key]['text_color']
   });
   $('.Explore').css({
-    height:'1.2rem'
+    height:(1.2*rems)+'px'
   });
   $('.line').css({
-    height:'2.875rem'
+    height:(2.875*rems)+'px'
   });
   $('.brief').css({
-    height:'2.9rem'
+    height:(2.9*rems)+'px'
   });
   //INFO Screen Opening
   $('.C').find('.Role').text(projects[key]['Role']);
   $('.C').css({
     
-    height:'1.6rem'});
+    height:(1.6*rems)+'px'});
     $('.B').find('.Type').html(projects[key]['Type']);
   $('.B').css({
 
-    height:'1.6rem'});
+    height:(1.6*rems)+'px'});
     $('.A').find('.Date').text(projects[key]['Date']);
   $('.A').css({
 
-    height:'1.6rem'});
+    height:(1.6*rems)+'px'});
     $('.D').find('.Client').text(projects[key]['Client']);
     $('.D').css({
-      height:'1.6rem'
+      height:(1.6*rems)+'px'
     });
       $('.brief').text(projects[key]['Info']);
 
