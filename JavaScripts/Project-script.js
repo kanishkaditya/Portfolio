@@ -1334,16 +1334,16 @@ function cardOpen(block_name,key)
   $(block_name).css({
     transform:
       "translateX(" +
-      ($(window).width()/32- (((2*key+1)*20 +(key+1)*12.5) - (scroll_value / 16))) *0.83 +
-      "vw)",
+      (48- (((2*key+1)*15 +(key+1)*10) - (scroll_value / (16*(2.25-window.devicePixelRatio))))) +
+      "rem)",
       'z-index':'12'
   });
 
 
   var card_front = $(block_name).find(".card-front");
   card_front.css({
-    height:'69.5vh',
-    width: "66.66vw",
+    height: 31+'rem',
+    width: 63+'rem',
   });
 
   card_front.addClass("hidden");
@@ -1351,9 +1351,9 @@ function cardOpen(block_name,key)
   var text_title = $(block_name).find(".card-title");
 
   text_title.css({
-    'font-size':'90px',
-    "padding-top":'20px',
-    "padding-left":'30px',
+    'font-size':'5.625rem',
+    "padding-top":'1.25rem',
+    "padding-left":'1.875rem',
   });
 
   $('.divi'+(key+1)).animate({
@@ -1371,7 +1371,7 @@ function cardOpen(block_name,key)
 }
 
 function cardClose(){
-  $('.fa-github, .fa-linkedin, .fa-envelope').css({'font-size':'16px'});
+  $('.fa-github, .fa-linkedin, .fa-envelope').css({'font-size':'1rem'});
   $('.fa-github').attr('onclick',"window.location.href = 'https://github.com/kanishkaditya'");
   $('body').css({
     'background-color':projects[0]['tint'],
@@ -1390,9 +1390,9 @@ function cardClose(){
   $(".block-" + (current_open + 1))
     .find(".card-title")
     .css({
-      'font-size':'40px',
-      "padding-top":'60px',
-    "padding-left":'100px'
+      'font-size':'2.3rem',
+      "padding-top":'3.75rem',
+    "padding-left":'2.6rem'
     });
     $('.divi'+(current_open+1)).animate({
       width:'0.2px',
@@ -1402,8 +1402,8 @@ function cardClose(){
     })
   var card_front = $(".block-" + (current_open + 1)).find(".card-front");
   card_front.css({
-    height:'66.25vh',
-    width: "33.33vw",
+    height:30+'rem',
+    width: 30+'rem',
   });
   $(".hoverarea").css({
     "pointer-events": "all",
@@ -1445,30 +1445,30 @@ function card_info_change(key){
     color:projects[key]['text_color']
   });
   $('.Explore').css({
-    height:'30px'
+    height:'1.2rem'
   });
   $('.line').css({
-    height:'46px'
+    height:'2.875rem'
   });
   $('.brief').css({
-    height:'34px'
+    height:'2.9rem'
   });
   //INFO Screen Opening
   $('.C').find('.Role').text(projects[key]['Role']);
   $('.C').css({
     
-    height:'30px'});
+    height:'1.6rem'});
     $('.B').find('.Type').html(projects[key]['Type']);
   $('.B').css({
 
-    height:'30px'});
+    height:'1.6rem'});
     $('.A').find('.Date').text(projects[key]['Date']);
   $('.A').css({
 
-    height:'30px'});
+    height:'1.6rem'});
     $('.D').find('.Client').text(projects[key]['Client']);
     $('.D').css({
-      height:'30px'
+      height:'1.6rem'
     });
       $('.brief').text(projects[key]['Info']);
 

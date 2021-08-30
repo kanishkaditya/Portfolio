@@ -6,6 +6,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  font-size: 125%;
   height: 100%;
   overflow-y: hidden;
   font-display: swap;
@@ -13,6 +14,16 @@ body {
   overflow-x: hidden;
   cursor: none;
   color: #fff;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25),
+  only screen and (min--moz-device-pixel-ratio: 1.25),
+  only screen and (min-device-pixel-ratio: 1.25),
+  only screen and (min-resolution: 125dpi)
+{
+  html,body{
+    font-size: 100%;
+  }
 }
 /* Cusor */
 .cursor {

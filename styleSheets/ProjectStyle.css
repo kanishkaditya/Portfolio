@@ -10,19 +10,12 @@ body{
 }
 :root {
   --level-one: translateZ(3rem);
-  /* --level-two: translateZ(6rem); */
-  /* --level-three: translateZ(9rem); */
-
-  /* --fw-normal: 400;
-  --fw-bold: 700; */
 }
 
 /* Card */
 .block {
   position: relative;
-  width: 33.33vw;
-  height: 66.25vh;
-  margin: 0px 10.416vw 0px 0px;
+  width: 40rem;
   transition: 500ms ease;
 }
 /* .Project-detail-title{
@@ -40,16 +33,15 @@ body{
 } */
 .hoverarea{
   position: absolute;
-  height: 22.22vh;
-  width: 10.41vw;
+  height: 13rem;
+  width: 13rem;
   z-index: 2;
-
 }
 .hoverarea:hover ~ .card-content { transform: rotateY(0.5turn); }
 .card-front {
   position: relative;
-  height: 66.25vh;
-  width: 40rem;
+  height: 30rem;
+  width: 30rem;
   white-space: nowrap;
   backface-visibility: hidden;
   transform-style: preserve-3d;
@@ -58,25 +50,26 @@ body{
 
 @media screen and (max-height:700px) {
     .card-front{
-      height: 60vh;
+      height: 28.31em;
     }
 }
 .card-back {
   position: relative;
-  top: -50vh;
+  top: -25rem;
   color: #bac4b8;
-  right: -10vw;
+  right: -8rem;
   backface-visibility: hidden;
   transform: rotateY(0.5turn);
+  font-size: 0.875rem;
   font-family: 'Source Serif Pro', serif !important;
-  width: 20vw;
+  width: 20rem;
   transform-style: preserve-3d;
 }
 
 .card-front::before {
   content: "";
   position: absolute;
-  --spacer: 2vh;
+  --spacer: 0.9375rem;
   top: var(--spacer);
   bottom: var(--spacer);
   right: var(--spacer);
@@ -91,10 +84,9 @@ body{
 }
 .card-title {
   position: relative;
-  padding-top: 60px;
-  padding-left: 100px;
-  font-size:40px;
-  width: 100%;
+  padding-top: 3.75rem;
+  padding-left: 2.6rem;
+  font-size:2.3rem;
   transition: 500ms ease;
 }
 /* Cardlist */
@@ -128,8 +120,8 @@ body{
 }
 
 .container {
-  margin-top: 12.4vh;
-  margin-left: 10.4vw;
+  margin-top: 5.5rem;
+  margin-left: 10rem;
   z-index: 2;
   transition:500ms ease;
 }
@@ -141,14 +133,14 @@ body{
   position: absolute;
   left: 50%;
   transition: 400ms ease;
-  top: 3.10vh;
+  top: 1.55rem;
 }
 .smalldivi {
-  height: 14px;
+  height: .875rem;
   width: 0.2 px;
   font-family: 'Source Serif Pro', serif !important;
   font-size: 0;
-  padding-bottom: 5px;
+  padding-bottom:5px;
   margin-left: 5px;
   border:0.2px solid grey;
   transition: 400ms ease
@@ -159,7 +151,7 @@ body{
   position: absolute;
   backface-visibility: hidden;
   transform-style: preserve-3d;
-  transform-origin: 8.33vw;
+  transform-origin: 10.25rem;
   transition: transform 200ms;
 }
 
@@ -170,29 +162,29 @@ body{
 }
 .title-hover{
   position: absolute;
-  width: 110px;
-  left: 100px;
+  width: 6.875rem;
+  left: 6.25rem;
   z-index: 2;
-  top: 24px;
+  top: 1.5rem;
   background-color: transparent;
-  height: 40px;
+  height: 2.5rem;
 }
 .title-back {
   position: relative;
   backface-visibility: hidden;
   transform: rotateY(0.5turn);
-  top: 30px;
-  left:120px;
-  font-size: 23px;
+  top: 1.875rem;
+  left:7.5rem;
+  font-size: 1.1rem;
   font-family: "Source Serif Pro', serif";
 
 }
 
 .title{
   position: absolute;
-  top: 30px;
-  margin-left: 120px;
-  font-size: 23px;
+  top: 1.875rem;
+  margin-left: 7.5rem;
+  font-size: 1.1rem;
   font-family: "Source Serif Pro', serif";
 }
 /* Button */
@@ -278,24 +270,25 @@ hr {
     font-family: 'Source Serif Pro', serif !important;
     position: absolute;
     color:#bac4b8;
-    font-size: 14px;
+    font-size: 0.75rem;
     transition: ease 500ms;
-    top: 85vh;
-    left: 29vw;
+    top: 41rem;
+    left: 27.84rem;
   }
   .Info > *{
     display: flex;
-    padding-left:20px;
+    padding-left:1.25rem;
   }
   
   .Info>*>*{
-    padding-left: 20px;
-    height: 2px;
+    padding-left: 1.25rem;
+    height:0.125rem;
   }
   
   .A{
     overflow:hidden;
     height: 0px;
+   
     background-color: transparent;
     transition: 500ms ease;
   }
@@ -323,13 +316,13 @@ hr {
   font-family: 'Source Serif Pro', serif !important;
   position: absolute;
   color:#bac4b8;
-  top: 92.3%;
-  left: 59%;
+  top: 43rem;
+  left: 58rem;
   transition: 500ms ease;
-  height: 0px;
-  width: 15.625vw;
+  height: 0rem;
+  width: 15rem;
   overflow: hidden;
-  font-size: 14px;
+  font-size: 0.75rem;
 }
 
 }
@@ -351,11 +344,11 @@ hr {
   font-family: 'Source Serif Pro', serif !important;
   position: absolute;
   color:#bac4b8;
-  top: 86.3%;
+  top: 42rem;
   height: 0px;
-  left: 49.8vw;
+  left: 47.8rem;
   overflow: hidden;
-  font-size: 14px;
+  font-size: 0.75rem;
 }
 
 .line{
@@ -364,6 +357,23 @@ hr {
   overflow: hidden;
   position: absolute;
   transition:500ms ease;
-  top: 89vh;
-  left: 51vw;
+  top: 44rem;
+  left: 48.96rem;
 }
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25),
+  only screen and (min--moz-device-pixel-ratio: 1.25),
+  only screen and (min-device-pixel-ratio: 1.25),
+  only screen and (min-resolution: 125dpi)
+  {
+    .line{
+top:43rem;
+    }
+    .Explore{
+      top:41rem;
+    }
+    .Info{
+      top:40rem
+    }
+  }
