@@ -188,9 +188,6 @@ ul > px*{
 .links{
   margin-right: calc(1.25px*var(--df)) ;
 }
-.icon{
-  font-size:calc(1px*var(--df)) ;
-}
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.25),
   only screen and (min--moz-device-pixel-ratio: 1.25),
@@ -283,9 +280,6 @@ ul > px*{
       top:calc(3.625px*var(--df)) ;
       margin-right: calc(6.25px*var(--df)) ;
       padding-bottom: calc(0.1875px*var(--df)) ;
-    }
-    .icon{
-      font-size:calc(1px*var(--df)) ;
     }
     
   }

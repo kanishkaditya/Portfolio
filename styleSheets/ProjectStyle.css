@@ -328,7 +328,6 @@ hr {
   overflow: hidden;
   font-size: calc(0.75px * var(--df));
 }
-
 }
 
 @media only screen and (max-width:1200px)
@@ -484,7 +483,6 @@ hr {
       .brief{
         display:none;
       }
-    
     }
     
     /* Explore */
@@ -499,7 +497,4 @@ hr {
       top:calc(43px * var(--df));
       left: calc(48.96px * var(--df));
     }
-
-
- 
   }

@@ -44,5 +44,5 @@ $(document).on(
       margin_left = "-10px;";
     },
   },
-  ".hoverarea, a , .about, .title-hover, .projects"
+  ".hoverarea, a , .about, .title-hover, .projects , i"
 );
