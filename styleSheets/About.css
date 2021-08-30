@@ -2,10 +2,7 @@
 :root{
     --white:white;
     --black:#161616;
-}
-*{
-    padding:0;
-    margin: 0;
+    --df:16;
 }
 body{
   font-family: 'Source Serif Pro', serif !important;

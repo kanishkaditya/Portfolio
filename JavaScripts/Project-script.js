@@ -1335,7 +1335,7 @@ function cardOpen(block_name,key)
   $(block_name).css({
     transform:
       "translateX(" +
-      (48- (((2*key+1)*15 +(key+1)*10) - (scroll_value / (rems))))*16 +
+      (1920/(2) - (((2*key+1)*15*rems +(key+1)*10*rems) - (scroll_value))) +
       "px)",
       'z-index':'12'
   });

@@ -1,10 +1,13 @@
 
+:root{
+  --df:20;
+}
 .card{
   position: fixed;
-  left:19.2rem;
-  top:14.0625rem;
-  height: 23.45rem;
-  width:  32.64rem;
+  left:calc(19.2px*var(--df));
+  top:calc(14.0625px*var(--df));
+  height: calc(23.45px*var(--df)) ;
+  width:  calc(32.64px*var(--df));
   transition: 500ms ease;
   background-color: #613645;
 }
@@ -15,8 +18,8 @@
     opacity: 0;
   }
   .fact{
-    left:16rem; 
-    top: 23.90rem;
+    left:calc(16px*var(--df)) ; 
+    top: calc(23.90px*var(--df)) ;
   }
   .title{
     font-size: 40px;
@@ -24,20 +27,20 @@
 }
 @media only screen and (min-width:960px) {
   .title{
-    font-size: 2.5rem;
+    font-size: calc(2.5px*var(-df));
   }
   .fact{
-    left: 50.7rem; 
-    top: 23.90rem;
+    left: calc(50.7px*var(--df)); 
+        top: calc(23.90px*var(--df));
   }
 }
 @media only screen and (min-width:1000px)  {
   .title{
-    font-size: 3.25rem;
+    font-size: calc(3.25px*var(--df)) ;
   }
   .fact{
-    left: 48rem; 
-    top: 29rem;
+    left: calc(48px*var(--df)) ; 
+        top: calc(29px*var(--df)) ;
   }
 }
 @media only screen and (max-width:670px) {
@@ -45,43 +48,48 @@
     font-size: 30px;
   }
   .fact{
-    left: 50.7rem; 
-    top: 16.74rem;
+    left: calc(50.7px*var(--df)) ; 
+        top: calc(16.7px*var(--df)) ;
   }
 }
 
 .fact{
-  font-size: 1.1rem; 
+  font-size: calc(1.2px* var(--df)) ; 
   position: absolute;
    transition: 500ms ease;
 }
 .title{
     position: absolute;
-    left: 39rem;
+    left:calc(39px*var(--df)) ;
+        top:calc(14.06px*var(--df)) ;
     transition: 500ms ease;
-    top:14.06rem;
+    
     text-transform:capitalize;
 }
-
+.name_title{
+  position: absolute;
+  font-size: calc(1px*var(--df));
+  top: calc(3.625px*var(--df)) ;
+}
 ul{
     position: absolute;
-    bottom: 1rem;
-    left:1rem;
+    bottom: calc(1px*var(--df)) ;
+        left:calc(1px*var(--df)) ;    
     display: flex;
     list-style: none;
 }
 
-ul > *{
-    margin-left: 1.25rem;
-}
+ul > px*{
+    margin-left: calc(1.25px*var(--df)) ; 
+  }
 /* projects button */
 .projects{
-    top:3.625rem;
-    margin-right: 1.25rem;
-    padding-bottom: 0.1875rem;
+    top:calc(3.625px*var(--df)) ; 
+    margin-right: calc(1.25px*var(--df)) ; 
+    padding-bottom:calc(0.1875px*var(--df)) ; 
     border: none;
     right: 0%;
-    font-size: 1rem;
+    font-size: calc(1px*var(--df)) ;
     position: absolute;
     transition: transform 100ms ease;
     background-color: var(--black);
@@ -91,7 +99,7 @@ ul > *{
  .projects::after {
    content: "";
    position: absolute;
-   height: 0.125rem;
+   height: calc(0.125px*var(--df)) ;
    bottom: 0%;
    width: 100%;
    left: 0%;
@@ -111,11 +119,11 @@ ul > *{
 
 
 .about{
-  top:3.625rem;
-  margin-right: 6.25rem;
-  padding-bottom: 0.1875rem;
+  top:calc(3.625px*var(--df)) ;
+  margin-right: calc(6.25px*var(--df)) ;
+  padding-bottom:calc(0.1875px*var(--df)) ;
   border: none;
-  font-size: 1rem;
+  font-size: calc(1px*var(--df)) ;
   right: 0%;
   position: absolute;
   transition: transform 100ms ease;
@@ -178,5 +186,106 @@ ul > *{
   left: 0%;
 }
 .links{
-  margin-right: 1.25rem;
+  margin-right: calc(1.25px*var(--df)) ;
 }
+.icon{
+  font-size:calc(1px*var(--df)) ;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25),
+  only screen and (min--moz-device-pixel-ratio: 1.25),
+  only screen and (min-device-pixel-ratio: 1.25),
+  only screen and (min-resolution: 125dpi){
+    :root{
+      --df:16;
+    }
+    .card{
+      left:calc(19.2px*var(--df));
+      top:calc(14.0625px*var(--df));
+      height: calc(23.45px*var(--df)) ;
+      width:  calc(32.64px*var(--df));
+    }
+    
+    
+    @media only screen and (max-width:960px) {
+      .card{
+        opacity: 0;
+      }
+      .fact{
+        left:calc(16px*var(--df)) ; 
+        top: calc(23.90px*var(--df)) ;
+      }
+      .title{
+        font-size: 40px;
+      }
+    }
+    @media only screen and (min-width:960px) {
+      .title{
+        font-size: calc(2.5px*var(-df)) ;
+      }
+      .fact{
+        left: calc(50.7px*var(--df)); 
+        top: calc(23.90px*var(--df));
+      }
+    }
+    @media only screen and (min-width:1000px)  {
+      .title{
+        font-size: calc(3.25px*var(--df)) ;
+      }
+      .fact{
+        left: calc(48px*var(--df)) ; 
+        top: calc(29px*var(--df)) ;
+      }
+    }
+    @media only screen and (max-width:670px) {
+      .title{
+        font-size: 30px;
+      }
+      .fact{
+        left: calc(50.7px*var(--df)) ; 
+        top: calc(16.7px*var(--df)) ;
+      }
+    }
+    
+    .fact{
+      font-size: calc(1.2 px* var(--df)) ; 
+    }
+    .title{ 
+        left:calc(39px*var(--df)) ;
+        top:calc(14.06px*var(--df)) ;
+    }
+    .name_title{
+      position: absolute;
+      font-size: calc(1px*var(--df));
+      top: calc(3.625px*var(--df)) ;
+    }
+    ul{
+        bottom: calc(1px*var(--df)) ;
+        left:calc(1px*var(--df)) ;       
+    }
+    
+    ul > px*{
+        margin-left: calc(1.25px*var(--df)) ;
+    }
+
+    /* projects button */
+    .projects{
+        top:calc(3.625px*var(--df)) ;
+        margin-right: calc(1.25px*var(--df)) ;
+        padding-bottom: calc(0.1875px*var(--df)) ;
+     }
+     
+     .projects::after {
+       height: calc(0.125px*var(--df)) 
+     }
+
+    .about{
+      top:calc(3.625px*var(--df)) ;
+      margin-right: calc(6.25px*var(--df)) ;
+      padding-bottom: calc(0.1875px*var(--df)) ;
+    }
+    .icon{
+      font-size:calc(1px*var(--df)) ;
+    }
+    
+  }
