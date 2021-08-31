@@ -105,7 +105,7 @@ THE SOFTWARE.
         r.link.setAttributeNS(
           "http://www.w3.org/1999/xlink",
           "href",
-          "javascript:void(0);"
+          ""
         ),
         r.link.setAttribute("target", e.target),
         r.link.addEventListener("mouseover", f, !0),
@@ -264,27 +264,6 @@ THE SOFTWARE.
         });
       };
     })(jQuery);
-
- $(document).ready(function(){
-  var sw=true;
-  $(window).scroll(function () {
-      if(sw){
-          // sw=false;
-          setTimeout(function(){
-
-            if($(this).scrollTop() <50){
-              $('.hello').css('top',  50+$(this).scrollTop() + 'px');
-             }
-            else {
-              $('.hello').css('top',  100 + 'px');
-            }
-            var he=Math.min((110 + $(this).scrollTop()), 300);
-            $('.title2').animate({height:he+'px'},0)
-
-          }, 1);
-      }
-  })}
-  );
 
   var entries = [
     { label: "Flutter" },

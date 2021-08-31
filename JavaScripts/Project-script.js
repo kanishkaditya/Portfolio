@@ -1439,7 +1439,7 @@ function card_info_remove(key)
       $('.D').find('.Client').text("");
       $('.brief').text("");
       $('.Explore, .line, .brief').css({
-        height:''
+        height:'0px'
       })
 }
 function card_info_change(key){
