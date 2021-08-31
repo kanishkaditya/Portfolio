@@ -344,6 +344,7 @@ hr {
   font-family: 'Source Serif Pro', serif !important;
   position: absolute;
   color:#bac4b8;
+  https://kanishkaditya.github.io/Portfolio/
   top: calc(42px * var(--df));
   height: 0px;
   left: calc(47.8px * var(--df));
@@ -489,6 +490,7 @@ hr {
     .Explore{
       top:calc(41px * var(--df));
       left: calc(47.8px * var(--df));
+      transition:500ms ease;
       font-size: calc(0.75px * var(--df));
     }
     
