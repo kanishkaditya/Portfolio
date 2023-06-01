@@ -1,0 +1,298 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@200;300&display=swap'); */
+
+
+:root {
+  --level-one: translateZ(3rem);
+  --df:20;
+  --fs:1;
+}
+
+body{
+  /* font-family: 'Monoton', 'cursive'; */
+  overflow: hidden;
+  color:white;
+  transition: ease 500ms;
+  background-color: #161616;
+}
+
+/* Card */
+.block {
+  position: relative;
+  width: calc(40px * var(--df));
+  transition: 500ms ease;
+  height: calc(38px * var(--df));
+}
+
+.card-content {
+  position: absolute;
+  transform-style: preserve-3d;
+  transform-origin: center;
+  transition: transform 500ms;
+  white-space: normal;
+}
+/* .card-content:hover {
+  transform: rotateY(0.5turn);
+} */
+.hoverarea{
+  position: absolute;
+  height: calc(13px * var(--df));
+  width: calc(13px * var(--df));
+  z-index: 2;
+}
+.hoverarea:hover ~ .card-content { transform: rotateY(0.5turn); }
+.card-front {
+  position: relative;
+  height: calc(30px * var(--df));
+  width: calc(30px * var(--df));
+  white-space: nowrap;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: 500ms ease;
+}
+
+.card-back {
+  position: relative;
+   top: calc(-25px * var(--df)); 
+  color: #bac4b8;
+   right: calc(-8px * var(--df)); 
+  backface-visibility: hidden;
+  transform: rotateY(0.5turn);
+  font-size: calc(0.875px * var(--df));
+  font-family: 'Source Serif Pro', serif !important;
+  width: calc(20px * var(--df));
+  transform-style: preserve-3d;
+}
+
+.card-front::before {
+  content: "";
+  position: absolute;
+  --spacer: calc(0.9375px * var(--df));
+  top: var(--spacer);
+  bottom: var(--spacer);
+  right: var(--spacer);
+  left: var(--spacer);
+  border: 3px solid burlywood;
+  transition: 500ms ease;
+  transform: var(--level-one);
+}
+
+.card-front.hidden::before{
+  opacity: 0;
+}
+.card-title {
+  position: relative;
+  padding-top: calc(3.75px * var(--df));
+  padding-left: calc(2.6px * var(--df));
+  font-size:calc(2.3px * var(--df));
+  transition: 500ms ease;
+}
+/* Cardlist */
+.block-1 .card-front {
+  background: url(../images/img-one.jpg) rgba(77, 38, 70, 0.247) no-repeat 50% 30%;
+  background-size: cover;
+  background-blend-mode:screen;
+
+}
+
+.block-2 .card-front {
+  background: url(../images/img-two.png) rgb(224, 94, 116) no-repeat 60% 50%;
+  background-size: cover;
+}
+
+.block-3 .card-front {
+  background: url(../images/img-three.gif) rgba(35, 80, 62, 0.205) no-repeat 50% 50%;
+  background-size: contain;
+
+}
+
+.block-4 .card-front {
+  background: url(../images/img-four.gif) no-repeat 50% 50%;
+  background-size: cover;
+
+}
+
+.block-5 .card-front {
+  background: url(../images/Animation.gif) no-repeat 50%;
+  background-size: cover;
+}
+
+.container {
+  margin-top: calc(5.5px * var(--df));
+  margin-left: calc(10px * var(--df));
+  z-index: 2;
+  transition:500ms ease;
+}
+
+
+
+
+/* Scroller */
+.scroller {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transition: 400ms ease;
+}
+.smalldivi {
+  height: calc(0.875px * var(--df));
+  width: 0.2 px;
+  font-family: 'Source Serif Pro', serif !important;
+  font-size: 0;
+  padding-bottom:5px;
+  margin-left: 5px;
+  border:0.2px solid grey;
+  transition: 400ms ease
+}
+/* title */
+
+.title-card {
+  display: flex;
+  flex:0.25;
+  margin-left: 20px;
+  justify-content: space-evenly;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform 200ms;
+  /* z-index: 2; */
+  /* background-color: red; */
+}
+
+.title-hover:hover ~ .title-card { 
+  transform: rotateY(0.5turn); 
+}
+
+.title-hover{
+  height: 30px;
+  width: 100px;
+  position: absolute;
+  left: 8%;
+  /* background-color: red; */
+  z-index: 2;
+  touch-action: none;
+  background-color: transparent;
+}
+.title-back {
+  backface-visibility: hidden;
+  transform: rotateY(0.5turn);
+  position: absolute;
+  font-size: calc(1.2rem * var(--fs));
+  font-family: "Source Serif Pro', serif";
+
+}
+
+.know_more {
+  margin: 10% 0%;
+  display: flex;
+}
+hr {
+  margin-left: 6%;
+}
+.know_more > * {
+  font-size: calc(1.1px * var(--df));
+}
+
+/* Explore */
+
+.Explore{
+  font-family: 'Source Serif Pro', serif !important;
+  position: absolute;
+  color:#bac4b8;
+  top: calc(42px * var(--df));
+  height: 0px;
+  left: calc(47.8px * var(--df));
+  overflow: hidden;
+  font-size: calc(0.75px * var(--df));
+}
+
+.line{
+  background-color:#bac4b8 ;
+  width: 2px;
+  overflow: hidden;
+  position: absolute;
+  transition:500ms ease;
+  top: calc(44px * var(--df));
+  left: calc(48.96px * var(--df));
+}
+.Info{
+  font-family: 'Source Serif Pro', serif !important;
+  position: absolute;
+  color:#bac4b8;
+  font-size: calc(0.75px * var(--df));
+  transition: ease 500ms;
+  top: calc(41px * var(--df));
+  left: calc(27.84px * var(--df));
+}
+.Info > *{
+  display: flex;
+  padding-left:calc(1.25px * var(--df));
+}
+
+.Info>*>*{
+  padding-left: calc(1.25px * var(--df));
+  height:calc(0.125px * var(--df));
+}
+
+.A{
+  overflow:hidden;
+  height: 0px;
+ 
+  background-color: transparent;
+  transition: 500ms ease;
+}
+.B{
+  overflow:hidden;
+  background-color: transparent;
+  height: 0px;
+  transition: 500ms ease;
+}
+.C{
+  background-color: transparent;
+  overflow:hidden;
+  height: 0px;
+  transition: 500ms ease;
+}
+.D{
+  background-color: transparent;
+  overflow:hidden;
+  height: 0px;
+  transition: 500ms ease;
+}
+
+
+.brief{
+font-family: 'Source Serif Pro', serif !important;
+position: absolute;
+color:#bac4b8;
+top: calc(43px * var(--df));
+left: calc(58px * var(--df));
+transition: 500ms ease;
+height: 0rem;
+width: calc(15px * var(--df));
+overflow: hidden;
+font-size: calc(0.75px * var(--df));
+}
+
+
+/* Explore */
+
+.Explore{
+font-family: 'Source Serif Pro', serif !important;
+position: absolute;
+color:#bac4b8;
+top: calc(42px * var(--df));
+height: 0px;
+left: calc(47.8px * var(--df));
+overflow: hidden;
+font-size: calc(0.75px * var(--df));
+}
+
+.line{
+background-color:#bac4b8 ;
+width: 2px;
+overflow: hidden;
+position: absolute;
+transition:500ms ease;
+top: calc(44px * var(--df));
+left: calc(48.96px * var(--df));
+}

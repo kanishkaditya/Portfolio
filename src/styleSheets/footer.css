@@ -1,0 +1,11 @@
+.icons{
+    display: flex;
+    position:absolute;
+    top: 90%;
+    left: 7%;
+    font-size: calc(1.2rem*var(--fs));
+}
+.icons>*{
+    padding-left: 20px;
+    transition: 500ms ease;
+}

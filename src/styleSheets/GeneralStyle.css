@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@200;300&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+* {
+  caret-color: transparent;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #161616;
+  overflow-y: hidden;
+  font-display: swap;
+  font-family: local("Pacifico Regular");
+  overflow-x: hidden;
+  cursor: none;
+  color: #fff;
+}
+
+/* Cusor */
+.cursor {
+  position: absolute;
+  margin-top: -10px;
+  margin-left: -10px;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0.8;
+  /* cursor: none; */
+  background-color: white;
+  transition: width ease 100ms, height ease 100ms, margin ease 100ms;
+}
+
+.navbar {
+  display: flex;
+  padding-top: 5vh;
+  /* align-items:start; */
+  background-color: transparent;
+  justify-content: space-evenly;
+}
+.routers {
+  display: flex;
+  background-color: transparent;
+  flex: 0.75;
+  justify-content: flex-end;
+}
+.router-button {
+  padding-bottom: 5px;
+  border: none;
+  cursor: none;
+  position: relative;
+  margin-right: 20px;
+  font-size: calc(1.2rem * var(--fs));
+  transition: transform 100ms ease;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.router-button::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  bottom: 0%;
+  width: 100%;
+  left: 0%;
+  transform: scaleX(0);
+  transition: transform 300ms ease;
+  transform-origin: left;
+  background: burlywood;
+}
+.router-Button:hover .router-button::after {
+  transform: scaleX(1);
+}
+.router-button:hover {
+  transform: scale(1.2);
+}
+
+/* transition layer management */
+.right-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  left: 200%;
+  background: #613645;
+  transition: all 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.right-layer.active {
+  left: 0%;
+}

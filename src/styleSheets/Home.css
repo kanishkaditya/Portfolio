@@ -1,0 +1,54 @@
+
+:root{
+  --df:20;
+  --fs:1;
+}
+.card{
+  position: fixed;
+  left:20%;
+  top:20%;
+   height: 500px;
+  width: 600px;
+  /* height: 50% ; */
+  /* width:  50%; */
+  background-color: #613645;
+  /* transition-duration: 100ms ;
+  transition-timing-function: ease-in; */
+}
+
+/* // generate the below fact element to start at the 75% of the card regardless of screensize */
+.fact{
+  position: fixed;
+  top: 45%;
+  left: 20%;
+  transform: translateX(450px);
+  font-size: calc(var(--fs)*1.5rem) ; 
+  transition: 500ms ease;
+}
+.description{
+  position: fixed;
+  left: 20%;
+  transform: translateX(450px);
+  top: 30%;
+  font-size: calc(var(--fs)*2rem);
+  transition: 500ms ease;
+  text-transform:capitalize;
+}
+ul{
+    position: absolute;
+    bottom: calc(1px*var(--df)) ;
+        left:calc(1px*var(--df)) ;    
+    display: flex;
+    list-style: none;
+}
+
+ul > px*{
+    margin-left: calc(1.25px*var(--df)) ; 
+  }
+/* projects button */
+
+ /* Layers */
+
+.links{
+  margin-right: calc(1.25px*var(--df)) ;
+}

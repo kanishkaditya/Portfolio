@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import MainScreen from "./screens/main.js";
+import Cursor from "./components/cursor.js";
+import Projects from "./screens/projects.js";
+import { Routes, Route} from "react-router-dom";
+import About from "./screens/about.js";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="right-layer"/>
+      <div className="left-layer"/>
+      <Cursor />
+      <Routes>
+          <Route path="/" exact element={<MainScreen />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/about" element={<About />} />
+      </Routes>
     </div>
   );
 }
